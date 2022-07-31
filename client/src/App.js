@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
-import Navbar from './components/Navbar';
+
 import Header from './components/Header';
-import About from './components/About';
-import WBS from './components/WBS';
-import Projects from './components/Projects';
-import PN from './components/PN';
+import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import Ghantt from './components/Ghantt';
-import SignIn from './components/SignIn';
-import SignUp from './components/SignUp';
+
+import About from './pages/About';
+import WBS from './pages/WBS';
+import Projects from './pages/Projects';
+import PN from './pages/PN';
+import Ghantt from './pages/Ghantt';
+import SignIn from './pages/SignIn';
+import SignUp from './pages/SignUp';
 
 
 const styles = {
