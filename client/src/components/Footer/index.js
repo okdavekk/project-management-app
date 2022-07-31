@@ -8,8 +8,6 @@ const styles = {
     background: "#1f1f1f",
     color: "#ffffff",
     textAlign: "center",
-    paddingTop: 20,
-    paddingBottom: 20,
     borderRadius: 8,
     display: "flex",
     justifyContent: "center"
@@ -17,10 +15,8 @@ const styles = {
   },
   h2: {
     fontSize: "2.0rem",
-    marginTop: 20,
-    marginRight: 20,
-    marginBottom: 20,
-    marginLeft: 4,
+    marginTop: 10,
+    marginBottom: 10,
   },
 
 };
