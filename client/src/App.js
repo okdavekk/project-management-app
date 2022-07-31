@@ -1,6 +1,4 @@
-// import React, { useState } from "react";
 import React from "react";
-
 import {
   ApolloClient,
   InMemoryCache,
@@ -10,28 +8,26 @@ import {
 import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import Header from "./components/Header";
-import AboutNav from "./components/Navbars/AboutNav";
-import SignedInNav from "./components/Navbars/SignedInNav";
-import SignedOutNav from "./components/Navbars/SignedOutNav";
-import ProjectNav from "./components/Navbars/ProjectNav";
-import WBSNav from "./components/Navbars/WBSNav";
-import PNNav from "./components/Navbars/PNNav";
-import GhanttNav from "./components/Navbars/GhanttNav"
-
-
-
-import Footer from "./components/Footer";
-
 import About from "./pages/About";
 import WBS from "./pages/WBS";
 import Projects from "./pages/Projects";
-import Project from "./pages/Project"
+import Project from "./pages/Project";
 import PN from "./pages/PN";
 import Ghantt from "./pages/Ghantt";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import SignOut from "./pages/SignOut";
+
+import Header from "./components/Header";
+import AboutNav from "./components/Navbars/AboutNav";
+import SignedInNav from "./components/Navbars/SignedInNav";
+import SignedOutNav from "./components/Navbars/SignedOutNav";
+import SignUpNav from "./components/Navbars/SignUpNav";
+import ProjectNav from "./components/Navbars/ProjectNav";
+import WBSNav from "./components/Navbars/WBSNav";
+import PNNav from "./components/Navbars/PNNav";
+import GhanttNav from "./components/Navbars/GhanttNav";
+import Footer from "./components/Footer";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -77,71 +73,75 @@ function App() {
               }
             />
             <Route 
-            Path="/SignIn" 
-            element={<SignIn />} 
-            />
-            <Route 
-            Path="/Projects/:username" 
-            element={
-              <>
-              <Projects />
-              <SignedInNav />
-              </>
-            } 
-            />
-             <Route 
-              Path="/Projects/:ProjectId" 
+              Path="/SignIn" 
               element={
-                <>
-                <Project />
-                <ProjectNav />
-                </>
-                } 
-                
-            />
-            <Route 
-              Path="/Projects/:ProjectId/WBS/:WBSId" 
-              element={
-                <>
-                <WBSNav />
-                <WBS />
-                </>
-                } 
-                
-            />
-            <Route 
-              Path="/Projects/:ProjectId/PN/:PNId" 
-              element={
-                <>
-                <PNNav />
-                <PN />
-                </>
+                <SignIn />
               } 
+            />
+            <Route
+              Path="/Projects/:username"
+              element={
+                <>
+                  <SignedInNav />
+                  <Projects />
+                </>
+              }
+            />
+            <Route
+              Path="/Projects/:ProjectId"
+              element={
+                <>
+                  <ProjectNav />
+                  <Project />
+                </>
+              }
+            />
+            <Route
+              Path="/Projects/:ProjectId/WBS/:WBSId"
+              element={
+                <>
+                  <WBSNav />
+                  <WBS />
+                </>
+              }
+            />
+            <Route
+              Path="/Projects/:ProjectId/PN/:PNId"
+              element={
+                <>
+                  <PNNav />
+                  <PN />
+                </>
+              }
             />
             <Route
               Path="/Projects/:ProjectId/Ghantt/:GhantId"
               element={
-              <>
-              <GhanttNav />
-              <Ghantt />
-              </>
+                <>
+                  <GhanttNav />
+                  <Ghantt />
+                </>
               }
             />
             <Route 
               Path="/SignUp" 
-              element={<SignUp />} 
-              />
-            <Route 
-              Path="/SignOut" 
+              element={
+                <>
+                <SignUpNav />
+                <SignUp />
+              </>
+              } 
+            />
+            <Route
+              Path="/SignOut"
               element={
                 <>
                   <SignedOutNav />
                   <SignOut />
                 </>
-              } 
+              }
             />
           </Routes>
-
           <Footer />
         </main>
       </Router>
