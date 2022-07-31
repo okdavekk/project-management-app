@@ -12,7 +12,7 @@
 ## Resources
 - [REPOSITORY](https://github.com/okdavekk/project-management-app)
 
-- [HEROKU]()
+- [HEROKU](https://serene-spire-23768.herokuapp.com/)
 
 ## Installation
 Run these commands in the root of the directory:

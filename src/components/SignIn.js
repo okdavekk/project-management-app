@@ -79,7 +79,6 @@ function Form() {
     <div style={styles.card}>
       <h1 style={styles.heading}>Sign In</h1>
 
-      <p>Hello Return Visitor {name}</p>
       <form className="form">
         <input
           style={styles.input}
