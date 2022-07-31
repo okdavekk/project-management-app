@@ -8,10 +8,12 @@ const styles = {
     marginRight: 20,
     background: "#2f2f2f",
     justifyContent: 'center',
+    
 
   },
   button: {
     display: "flex",
+    flexDirection: "row",
     background: "#ff706b",
     fontSize: "1.2rem",
     color: "white",
@@ -24,7 +26,9 @@ const styles = {
 
 function Navbar({setPage}) {
   return (
-    <nav className="button btn-group-toggle" data-toggle="buttons" style={styles.navbar}>
+ 
+    <nav >
+         <div className="button btn-group-toggle" data-toggle="buttons" style={styles.navbar}>
       <button className="button btn-secondary active" style={styles.button}
         href="About" onClick={() => setPage('About')}>
           About
@@ -45,6 +49,9 @@ function Navbar({setPage}) {
         href="#Ghantt" onClick={() => setPage('Ghantt')}>
          Ghantt
       </button>
+      </div>
+
+      <div className="button btn-group-toggle" data-toggle="buttons" style={styles.navbar}>
       <button className="button"   style={styles.button}
         href="#SignIn" onClick={() => setPage('SignIn')}>
          Sign In
@@ -53,6 +60,7 @@ function Navbar({setPage}) {
         href="#SignUp" onClick={() => setPage('SignUp')}>
          Sign Up
       </button>
+      </div>
     </nav>
   );
 }
