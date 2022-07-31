@@ -24,6 +24,9 @@ const styles = {
   },
 };
 
+// TODO:  When you come to the page, only display About, Sign in, and Sign up.
+// TODO:  When you are signed in only display Projects and Sign out
+// TODO:  When you clock on Projects only display WBS, PN, Ghantt, and Sign out.
 function Navbar({setPage}) {
   return (
  
@@ -59,6 +62,10 @@ function Navbar({setPage}) {
       <button className="button"   style={styles.button}
         href="#SignUp" onClick={() => setPage('SignUp')}>
          Sign Up
+      </button>
+      <button className="button"   style={styles.button}
+        href="#SignOut" onClick={() => setPage('SignOut')}>
+         Sign Out
       </button>
       </div>
     </nav>

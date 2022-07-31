@@ -11,6 +11,7 @@ import PN from './pages/PN';
 import Ghantt from './pages/Ghantt';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
+import SignOut from './pages/SignOut';
 
 
 const styles = {
@@ -34,6 +35,7 @@ function App() {
   if (page === 'Ghantt') CurrentPage= Ghantt;
   if (page === 'SignIn') CurrentPage= SignIn;
   if (page === 'SignUp') CurrentPage= SignUp;
+  if (page === 'SignOut') CurrentPage= SignOut;
 
   return (
     <main style={styles.main}>

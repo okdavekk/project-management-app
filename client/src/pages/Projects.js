@@ -1,7 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
 
-
 const styles = {
   card: {
     margin: 20,
@@ -15,7 +14,6 @@ const styles = {
     minHeight: 50,
     lineHeight: 3.5,
     fontSize: "2.0rem",
-    // color: "white",
     padding: "0 20px",
     borderTopLeftRadius: 8,
     borderTopRightRadius: 8,
@@ -23,6 +21,7 @@ const styles = {
   },
 };
 
+// TODO: Call in Projects building util or place here.  The area may need to be in its own scroll type deal.
 function Card() {
   return (
     <div style={styles.card}>

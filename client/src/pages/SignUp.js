@@ -1,3 +1,4 @@
+// TODO: fix all of the below for sign up
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import { validateEmail } from "../utils/helpers";
@@ -39,6 +40,7 @@ const styles = {
   },
 };
 
+// TODO: fix all of the below for sign up
 function Form() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
