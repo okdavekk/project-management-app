@@ -22,8 +22,7 @@ const styles = {
 function Header() {
   return (
     <header style={styles.header}>
-      <h1 style={styles.h1}>David Kemp</h1>
-      <h3 style={styles.h3}>My React Portfolio</h3>
+      <h1 style={styles.h1}>Project Management App</h1>
     </header>
   );
 }

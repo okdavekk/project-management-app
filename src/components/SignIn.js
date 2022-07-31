@@ -5,7 +5,7 @@ import { validateEmail } from "../utils/helpers";
 const styles = {
   button: {
     display: "flex",
-    background: "#9a74db",
+    background: "#ff706b",
     fontSize: "1.2rem",
     color: "white",
     alignItems: "center",
@@ -16,6 +16,26 @@ const styles = {
     padding: 10,
     borderRadius: 8,
     margin: 4,
+  },
+  card: {
+    margin: 20,
+    background: "#1f1f1f",
+    borderRadius: 8,
+  },
+  heading: {
+    fontWeight: 900,
+    background: "#ff706b",    
+    minHeight: 50,
+    lineHeight: 3.5,
+    fontSize: "2.0rem",
+    // color: "white",
+    padding: "0 20px",
+    borderTopLeftRadius: 8,
+    borderTopRightRadius: 8,
+  },
+  content: {
+    padding: 20,
+    color: "white",
   },
 };
 
@@ -56,7 +76,9 @@ function Form() {
   };
 
   return (
-    <div>
+    <div style={styles.card}>
+      <h1 style={styles.heading}>Sign In</h1>
+
       <p>Hello Return Visitor {name}</p>
       <form className="form">
         <input

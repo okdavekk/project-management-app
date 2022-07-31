@@ -1,6 +1,4 @@
 import React from "react";
-import Form from './Form';
-
 import "bootstrap/dist/css/bootstrap.css";
 
 const styles = {
@@ -11,7 +9,7 @@ const styles = {
   },
   heading: {
     fontWeight: 900,
-    background: "#9a74db",
+    background: "#ff706b",
     minHeight: 50,
     lineHeight: 3.5,
     fontSize: "2.0rem",
@@ -23,16 +21,19 @@ const styles = {
   content: {
     padding: 20,
     color: "white",
+    textAlign: "justify",
   },
 };
 
 function Card() {
   return (
     <div style={styles.card}>
-      <h1 style={styles.heading}>Contact</h1>
-      <div style={styles.content}>
-<Form />
-      </div>
+      <h1 style={styles.heading}>About</h1>
+        <div style={styles.content}>
+        <p>
+          This is a simple to use project management app that allows you to create Projects with Work Breakdown Structures, Project Networks, and Ghantt Charts.  
+        </p>
+        </div>
     </div>
   );
 }

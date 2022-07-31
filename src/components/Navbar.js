@@ -12,7 +12,7 @@ const styles = {
   },
   button: {
     display: "flex",
-    background: "#9a74db",
+    background: "#ff706b",
     fontSize: "1.2rem",
     color: "white",
     alignItems: "center",
@@ -26,20 +26,32 @@ function Navbar({setPage}) {
   return (
     <nav className="button btn-group-toggle" data-toggle="buttons" style={styles.navbar}>
       <button className="button btn-secondary active" style={styles.button}
-        href="#projectAboutMe" onClick={() => setPage('projectAboutMe')}>
-          About Me
+        href="About" onClick={() => setPage('About')}>
+          About
       </button>
       <button className="button"   style={styles.button}
-        href="#projectPortfolio" onClick={() => setPage('projectPortfolio')}>
-         Portfolio
+        href="#Projects" onClick={() => setPage('Projects')}>
+         Projects
       </button>
       <button className="button"  style={styles.button}
-        href="#projectContact" onClick={() => setPage('projectContact')}>
-         Contact
+        href="#WBS" onClick={() => setPage('WBS')}>
+         WBS
       </button>
       <button className="button"   style={styles.button}
-        href="#projectResume" onClick={() => setPage('projectResume')}>
-         Resume
+        href="#PN" onClick={() => setPage('PN')}>
+         PN
+      </button>
+      <button className="button"   style={styles.button}
+        href="#Ghantt" onClick={() => setPage('Ghantt')}>
+         Ghantt
+      </button>
+      <button className="button"   style={styles.button}
+        href="#SignIn" onClick={() => setPage('SignIn')}>
+         Sign In
+      </button>
+      <button className="button"   style={styles.button}
+        href="#SignUp" onClick={() => setPage('SignUp')}>
+         Sign Up
       </button>
     </nav>
   );
