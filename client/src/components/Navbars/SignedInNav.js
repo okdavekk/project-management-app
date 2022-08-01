@@ -30,7 +30,7 @@ function Navbar() {
       <Link to="/" className="button" style={styles.button}>
         About
       </Link>
-      <Link to="/SignOut" className="button" style={styles.button}>
+      <Link to="/signOut" className="button" style={styles.button}>
         Sign Out
       </Link>
     </div>

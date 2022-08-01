@@ -27,19 +27,19 @@ const styles = {
 function Navbar() {
   return (
       <div style={styles.navbar}>
-        <Link to="/Projects" className="button" style={styles.button}>
+        <Link to="/projects" className="button" style={styles.button}>
           Back to Projects
         </Link>
-        <Link to="/WBS" className="button" style={styles.button}>
+        <Link to="/wbs" className="button" style={styles.button}>
           WBS
         </Link>
-        <Link to="/PN" className="button" style={styles.button}>
+        <Link to="/pn" className="button" style={styles.button}>
           PN
         </Link>
-        <Link to="/Ghantt" className="button" style={styles.button}>
+        <Link to="/ghantt" className="button" style={styles.button}>
           Ghantt
         </Link>
-        <Link to="/Signout" className="button" style={styles.button}>
+        <Link to="/signout" className="button" style={styles.button}>
           Sign Out
         </Link>
       </div>

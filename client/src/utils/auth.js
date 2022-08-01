@@ -28,7 +28,7 @@ class AuthService {
   login(idToken) {
     localStorage.setItem('id_token', idToken);
     // TODO: Is this right or should it be Project/:userId ?
-    window.location.assign('/');
+    window.location.assign('/projects');
   }
 
   logout() {

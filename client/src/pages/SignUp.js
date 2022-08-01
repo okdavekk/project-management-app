@@ -1,6 +1,5 @@
 // TODO: fix all of the below for sign up
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
@@ -80,9 +79,9 @@ const Signup = () => {
     <div style={styles.card}>
       <h1 style={styles.heading}>Sign Up</h1>
       {data ? (
-        <p>
-          Success! Taking you to <Link to="/Projects">your projects page.</Link>
-        </p>
+        <h1>
+          ....Redirect to Projects....
+        </h1>
       ) : (
         <form style={styles.content} onSubmit={handleFormSubmit}>
           <input
