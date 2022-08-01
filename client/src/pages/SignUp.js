@@ -1,7 +1,11 @@
 // TODO: fix all of the below for sign up
 import React, { useState } from "react";
+
+import { useMutation } from "@apollo/client";
+import { ADD_USER } from "../utils/mutations";
+
+import Auth from "../utils/auth";
 import "bootstrap/dist/css/bootstrap.css";
-import { validateEmail } from "../utils/helpers";
 
 const styles = {
   button: {
@@ -25,7 +29,7 @@ const styles = {
   },
   heading: {
     fontWeight: 900,
-    background: "#ff706b",    
+    background: "#ff706b",
     minHeight: 50,
     lineHeight: 3.5,
     fontSize: "2.0rem",
@@ -40,81 +44,67 @@ const styles = {
 };
 
 // TODO: fix all of the below for sign up
-function Form() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
+const Signup = () => {
+  const [formState, setFormState] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
+  const [addUser, { error, data }] = useMutation(ADD_USER);
 
-  const handleInputChange = (e) => {
-    const { target } = e;
-    const inputType = target.name;
-    const inputValue = target.value;
+  const handleChange = (event) => {
+    const { name, value } = event.target;
 
-    if (inputType === "name") {
-      setName(inputValue);
-    }
-    if (inputType === "email") {
-      setEmail(inputValue);
-    }
-    if (inputType === "message") {
-      setMessage(inputValue);
-    }
-    
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
   };
 
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
 
-    if (!validateEmail(email)) {
-      alert("Email is invalid");
-      return;
+    try {
+      const { data } = await addUser({
+        variables: { ...formState },
+      });
+
+      Auth.login(data.addUser.token);
+    } catch (e) {
+      console.error(e);
     }
-
-    setName("");
-    setEmail("");
-    setMessage("");
-    alert(`Hello: ${name}.  Thank you for adding your valid Email: ${email} and the Message: ${message}`);
   };
 
   return (
     <div style={styles.card}>
       <h1 style={styles.heading}>Sign Up</h1>
 
-      <form className="form">
+      <form onSubmit={handleFormSubmit}>
         <input
-          style={styles.input}
-          value={name}
-          name="name"
-          onChange={handleInputChange}
+          placeholder="Your username"
+          name="username"
           type="text"
-          placeholder="name"
+          value={formState.name}
+          onChange={handleChange}
         />
-
         <input
-          style={styles.input}
-          value={email}
+          placeholder="Your email"
           name="email"
-          onChange={handleInputChange}
-          type="text"
-          // email="text"
-          placeholder="email"
+          type="email"
+          value={formState.email}
+          onChange={handleChange}
         />
-
         <input
-          style={styles.input}
-          value={message}
-          name="message"
-          onChange={handleInputChange}
-          type="text"
-          placeholder="message"
+          placeholder="******"
+          name="password"
+          type="password"
+          value={formState.password}
+          onChange={handleChange}
         />
-
-        <button style={styles.button} onClick={handleFormSubmit}>
-          Submit
-        </button>
+        <button type="submit">Submit</button>
       </form>
     </div>
   );
-}
+};
 
-export default Form;
+export default Signup;
