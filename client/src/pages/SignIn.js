@@ -1,10 +1,12 @@
 // TODO: fix all of the below for sign in
 import React, { useState } from "react";
-import "bootstrap/dist/css/bootstrap.css";
-// import Auth from "../utils/auth";
-// import { useMutation } from "@apollo/client";
-// import { LOGIN_USER } from "../utils/mutations";
+import { Link } from "react-router-dom";
+import { useMutation } from "@apollo/client";
+import { LOGIN_USER } from "../utils/mutations";
 
+import Auth from "../utils/auth";
+
+import "bootstrap/dist/css/bootstrap.css";
 
 const styles = {
   button: {
@@ -15,6 +17,7 @@ const styles = {
     alignItems: "center",
     borderRadius: 8,
     margin: 4,
+    cursor: "pointer",
   },
   input: {
     padding: 10,
@@ -43,9 +46,9 @@ const styles = {
 };
 
 // TODO: fix all of the below for sign in
-const Login = (props) => {
+const Login = () => {
   const [formState, setFormState] = useState({ email: "", password: "" });
-  // const [login, { error, data }] = useMutation(LOGIN_USER);
+  const [login, { error, data }] = useMutation(LOGIN_USER);
 
   // update state based on form input changes
   const handleChange = (event) => {
@@ -60,13 +63,12 @@ const Login = (props) => {
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
     try {
-      // const { data } = await login({
-        // variables: { ...formState },
-      // });
+      const { data } = await login({
+        variables: { ...formState },
+      });
 
-      // Auth.login(data.login.token);
+      Auth.login(data.login.token);
     } catch (e) {
       console.error(e);
     }
@@ -78,35 +80,41 @@ const Login = (props) => {
     });
   };
 
-  return (
-    <div style={styles.card}>
-      <h1 style={styles.heading}>Sign In</h1>
 
-      <form onSubmit={handleFormSubmit}>
-        <input
-          className="form-input"
-          placeholder="Your email"
-          name="email"
-          type="email"
-          value={formState.email}
-          onChange={handleChange}
-        />
-        <input
-          className="form-input"
-          placeholder="******"
-          name="password"
-          type="password"
-          value={formState.password}
-          onChange={handleChange}
-        />
-        <button
-          className="btn btn-block btn-primary"
-          style={{ cursor: "pointer" }}
-          type="submit"
-        >
-          Submit
-        </button>
-      </form>
+    return (
+      <div style={styles.card}>
+        <h1 style={styles.heading}>Sign In</h1>
+        {data ? (
+        <p>
+          Success! Taking you to <Link to="/Projects">your projects page.</Link>
+        </p>
+      ) : (
+        <form style={styles.content} onSubmit={handleFormSubmit}>
+          <input
+            style={styles.input}
+            placeholder="Username"
+            name="username"
+            type="text"
+            value={formState.name}
+            onChange={handleChange}
+          />
+          <input
+            style={styles.input}
+            placeholder="You password"
+            name="password"
+            type="password"
+            value={formState.password}
+            onChange={handleChange}
+          />
+          <button className="button" style={styles.button} type="submit">
+            Submit
+          </button>
+        </form>
+    )}
+
+      {error && (
+        <div className="my-3 p-3 bg-danger text-white">{error.message}</div>
+      )}
     </div>
   );
 };
