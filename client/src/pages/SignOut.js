@@ -1,4 +1,5 @@
 import React from "react";
+
 import "bootstrap/dist/css/bootstrap.css";
 
 const styles = {
@@ -20,20 +21,14 @@ const styles = {
   content: {
     padding: 20,
     color: "white",
-    textAlign: "justify",
   },
 };
 
-// TODO: Describe project better.  Links to what a WBS, PN, and Ghantt chart are.  Pics?
 function Card() {
   return (
     <div style={styles.card}>
-      <h1 style={styles.heading}>About</h1>
-        <div style={styles.content}>
-        <p>
-          This is a simple to use project management app that allows you to create Projects with Work Breakdown Structures, Project Networks, and Ghantt Charts.  
-        </p>
-        </div>
+      <h1 style={styles.heading}>Goodbye!</h1>
+
     </div>
   );
 }
