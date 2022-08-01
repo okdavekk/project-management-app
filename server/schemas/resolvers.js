@@ -24,6 +24,11 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
+   // addProject: async (_, args) => {
+    //  const project = await Project.create(args);
+    //  const token = signToken(project);
+    //  return { token, project };
+   // },
     login: async (_, { email, password }) => {
       const user = await User.findOne({ email });
 
