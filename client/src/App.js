@@ -9,19 +9,20 @@ import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import About from "./pages/About";
-import WBS from "./pages/WBS";
+import Signin from "./pages/SignIn";
+import Signup from "./pages/SignUp";
 import Projects from "./pages/Projects";
 import Project from "./pages/Project";
+import WBS from "./pages/WBS";
 import PN from "./pages/PN";
 import Ghantt from "./pages/Ghantt";
-import SignIn from "./pages/SignIn";
-import SignUp from "./pages/SignUp";
-import SignOut from "./pages/SignOut";
+import Signout from "./pages/SignOut";
 
 import Header from "./components/Header";
 import AboutNav from "./components/Navbars/AboutNav";
 import SignedInNav from "./components/Navbars/SignedInNav";
 import SignedOutNav from "./components/Navbars/SignedOutNav";
+import SignInNav from "./components/Navbars/SignInNav"
 import SignUpNav from "./components/Navbars/SignUpNav";
 import ProjectNav from "./components/Navbars/ProjectNav";
 import WBSNav from "./components/Navbars/WBSNav";
@@ -73,13 +74,16 @@ function App() {
               }
             />
             <Route 
-              Path="/SignIn" 
+              path="/signin" 
               element={
-                <SignIn />
+                <>
+                <SignInNav />
+                <Signin />
+                </>
               } 
             />
             <Route
-              Path="/Projects/:username"
+              path="/Projects"
               element={
                 <>
                   <SignedInNav />
@@ -88,7 +92,7 @@ function App() {
               }
             />
             <Route
-              Path="/Projects/:ProjectId"
+              path="/Project"
               element={
                 <>
                   <ProjectNav />
@@ -97,7 +101,7 @@ function App() {
               }
             />
             <Route
-              Path="/Projects/:ProjectId/WBS/:WBSId"
+              path="/WBS"
               element={
                 <>
                   <WBSNav />
@@ -106,7 +110,7 @@ function App() {
               }
             />
             <Route
-              Path="/Projects/:ProjectId/PN/:PNId"
+              path="/PN"
               element={
                 <>
                   <PNNav />
@@ -115,7 +119,7 @@ function App() {
               }
             />
             <Route
-              Path="/Projects/:ProjectId/Ghantt/:GhantId"
+              path="/Ghantt"
               element={
                 <>
                   <GhanttNav />
@@ -124,20 +128,20 @@ function App() {
               }
             />
             <Route 
-              Path="/SignUp" 
+              path="/signup" 
               element={
                 <>
                 <SignUpNav />
-                <SignUp />
+                <Signup />
               </>
               } 
             />
             <Route
-              Path="/SignOut"
+              path="/Signout"
               element={
                 <>
                   <SignedOutNav />
-                  <SignOut />
+                  <Signout />
                 </>
               }
             />
