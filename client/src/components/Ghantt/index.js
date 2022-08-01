@@ -1,5 +1,6 @@
 import React from "react";
 import GhanttPic from "./Assets/ghantt-chart.png"
+import GhanttBuilder from "./utils/ghanttbuilder.js"
 import "bootstrap/dist/css/bootstrap.css";
 
 const styles = {
@@ -48,6 +49,9 @@ function Card() {
     <div style={styles.card}>
         <div style={styles.content}>
           <img style={styles.image} src={GhanttPic} alt="G" />
+          <>
+          <GhanttBuilder />
+          </>
         </div>
     </div>
   );

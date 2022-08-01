@@ -1,5 +1,7 @@
 import React from "react";
 import PNPic from "./Assets/project-network.png"
+import PNBuilder from "./utils/pnbuilder.js"
+
 import "bootstrap/dist/css/bootstrap.css";
 
 const styles = {
@@ -48,6 +50,9 @@ function Card() {
     <div style={styles.card}>
         <div style={styles.content}>
           <img style={styles.image} src={PNPic} alt="G" />
+          <>
+          <PNBuilder /> 
+          </>
         </div>
     </div>
   );
