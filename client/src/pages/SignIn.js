@@ -1,6 +1,5 @@
 // TODO: fix all of the below for sign in
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../utils/mutations";
 
@@ -85,22 +84,22 @@ const Login = () => {
       <div style={styles.card}>
         <h1 style={styles.heading}>Sign In</h1>
         {data ? (
-        <p>
-          Success! Taking you to <Link to="/Projects">your projects page.</Link>
-        </p>
+        <h1>
+        ....Redirect to Projects....
+      </h1>
       ) : (
         <form style={styles.content} onSubmit={handleFormSubmit}>
           <input
             style={styles.input}
-            placeholder="Username"
-            name="username"
+            placeholder="email"
+            name="email"
             type="text"
             value={formState.name}
             onChange={handleChange}
           />
           <input
             style={styles.input}
-            placeholder="You password"
+            placeholder="Password"
             name="password"
             type="password"
             value={formState.password}

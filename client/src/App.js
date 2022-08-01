@@ -6,7 +6,8 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+// import { Switch } from "react-router";
 
 import About from "./pages/About";
 import Signin from "./pages/SignIn";
@@ -57,99 +58,158 @@ const styles = {
   },
 };
 
+// function App() {
+//   return (
+//     <ApolloProvider client={client}>
+//       <Router>
+//         <main style={styles.main}>
+//           <Header />
+//           <Routes>
+//             <Route path="/"
+//               element={
+//                 <>
+//                   <AboutNav />
+//                   <About />
+//                 </>
+//               }
+//             />
+//             <Route 
+//               path="/signin" 
+//               element={
+//                 <>
+//                 <SignInNav />
+//                 <Signin />
+//                 </>
+//               } 
+//             />
+//               <Route 
+//                 path="/signup" 
+//                 element={
+//                   <>
+//                   <SignUpNav />
+//                   <Signup />
+//                 </>
+//                 } 
+//               />
+//             <Route
+//               path="/projects"
+//               element={
+//                 <>
+//                   <SignedInNav />
+//                   <Projects />
+          
+//                 </>
+//               }>
+//               <Route
+//                 path="project"
+//                 element={
+//                   <>
+//                     <ProjectNav />
+//                     <Project />
+//                   </>
+//                 }>    
+//                   <Route
+//                   path="/wbs"
+//                   element={
+//                     <>
+//                       <WBSNav />
+//                       <WBS />
+//                     </>
+//                   }
+//                   />
+//                   <Route
+//                   path="/pn"
+//                   element={
+//                     <>
+//                     <PNNav />
+//                     <PN />
+//                   </>
+//                   }
+//                   />
+//                   <Route
+//                   path="/ghantt"
+//                   element={
+//                     <>
+//                     <GhanttNav />
+//                     <Ghantt />
+//                   </>
+//                   }
+//                   />
+
+//               </Route>
+//              </Route>
+//             />
+//             <Route
+//               path="/signout"
+//               element={
+//                 <>
+//                   <SignedOutNav />
+//                   <Signout />
+//                 </>
+//               }
+//             />
+//           </Routes>
+//           <Footer />
+//         </main>
+//       </Router>
+//     </ApolloProvider>
+//   );
+// }
+
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Router>
+        <Router>
         <main style={styles.main}>
           <Header />
           <Routes>
-            <Route
-              path="/"
-              element={
-                <>
-                  <AboutNav />
-                  <About />
-                </>
-              }
-            />
-            <Route 
-              path="/signin" 
-              element={
-                <>
-                <SignInNav />
-                <Signin />
-                </>
-              } 
-            />
-            <Route
-              path="/Projects"
-              element={
-                <>
-                  <SignedInNav />
-                  <Projects />
-                </>
-              }
-            />
-            <Route
-              path="/Project"
-              element={
-                <>
-                  <ProjectNav />
-                  <Project />
-                </>
-              }
-            />
-            <Route
-              path="/WBS"
-              element={
-                <>
-                  <WBSNav />
-                  <WBS />
-                </>
-              }
-            />
-            <Route
-              path="/PN"
-              element={
-                <>
-                  <PNNav />
-                  <PN />
-                </>
-              }
-            />
-            <Route
-              path="/Ghantt"
-              element={
-                <>
-                  <GhanttNav />
-                  <Ghantt />
-                </>
-              }
-            />
-            <Route 
-              path="/signup" 
-              element={
-                <>
-                <SignUpNav />
-                <Signup />
-              </>
-              } 
-            />
-            <Route
-              path="/Signout"
-              element={
-                <>
-                  <SignedOutNav />
-                  <Signout />
-                </>
-              }
-            />
+            {/* MAIN PATHS */}
+            <Route path="/" element={<><AboutNav /> <About /></>} />
+            <Route path="signin" element={<><SignInNav /> <Signin /></>}/>
+            <Route path="signup" element={<><SignUpNav /> <Signup /></>}/>
+            <Route path="signout" element={<><SignedOutNav /> <Signout /></>}/>
+
+            {/* PROJECTS PATHS */}
+            <Route path="projects" element={<><SignedInNav /> <Projects /></>}/>
+            <Route path="projects/add" element={<><SignedInNav /> <Projects /></>}/>
+            <Route path="projects/delete/:id" element={<><SignedInNav /> <Projects /></>}/>
+            <Route path="projects/edit/:id" element={<><SignedInNav /> <Projects /></>}/>
+
+            {/* PROJECT PATHS */}
+            <Route path="projects/:id/project" element={<><ProjectNav /> <Project /></>}/>
+            <Route path="projects/:id/project/add" element={<><ProjectNav /> <Project /></>}/>
+            <Route path="projects/:id/project/delete/:id" element={<><ProjectNav /> <Project /></>}/>
+            <Route path="projects/:id/project/edit/:id" element={<><ProjectNav /> <Project /></>}/>
+
+            {/* PROJECT TO WBS */}
+            <Route path="projects/:id/project/wbs/" element={<><WBSNav /> <WBS /></>}/>
+            <Route path="projects/:id/project/wbs/add" element={<><WBSNav /> <WBS /></>}/>
+            <Route path="projects/:id/project/wbs/delete/:id" element={<><WBSNav /> <WBS /></>}/>
+            <Route path="projects/:id/project/wbs/edit/:id" element={<><WBSNav /> <WBS /></>}/>
+
+            {/* PROJECT TO PN */}
+            <Route path="projects/:id/project/pn/" element={<><PNNav /> <PN /></>}/>
+            <Route path="projects/:id/project/pn/add" element={<><PNNav /> <PN /></>}/>
+            <Route path="projects/:id/project/pn/delete/:id" element={<><PNNav /> <PN /></>}/>
+            <Route path="projects/:id/project/pn/edit/:id" element={<><PNNav /> <PN /></>}/>
+
+
+            {/* PROJECT TO GHANTT */}
+            <Route path="projects/:id/project/ghantt/" element={<><GhanttNav /> <Ghantt /></>}/>
+            <Route path="projects/:id/project/ghantt/add" element={<><GhanttNav /> <Ghantt /></>}/>
+            <Route path="projects/:id/project/ghantt/delete/:id" element={<><GhanttNav /> <Ghantt /></>}/>
+            <Route path="projects/:id/project/ghantt/edit/:id" element={<><GhanttNav /> <Ghantt /></>}/>
+            
           </Routes>
-          <Footer />
-        </main>
-      </Router>
+           <Footer />
+          </main>
+        </Router>
+
+
+
     </ApolloProvider>
+
+
   );
 }
 

@@ -1,4 +1,5 @@
 import React from "react";
+import WBSCode from "../components/WBS";
 import "bootstrap/dist/css/bootstrap.css";
 
 const styles = {
@@ -19,7 +20,6 @@ const styles = {
   },
   content: {
     padding: 20,
-    color: "white",
   },
 };
 
@@ -28,7 +28,9 @@ function Card() {
   return (
     <div style={styles.card}>
       <h1 style={styles.heading}>Work Breakdown Structure</h1>
-
+      <div style={styles.content}>
+        <WBSCode />
+      </div>
     </div>
   );
 }

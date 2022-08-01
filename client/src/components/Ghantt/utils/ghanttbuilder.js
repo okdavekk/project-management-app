@@ -1,6 +1,4 @@
 import React from "react";
-import WBSPic from "./Assets/work-breakdown-structure.png"
-import WBSBuilder from "./utils/wbsbuilder.js"
 import "bootstrap/dist/css/bootstrap.css";
 
 const styles = {
@@ -38,21 +36,13 @@ const styles = {
     paddingLeft: 20,
     paddingRight: 20,
     paddingBottom: 20,
-
-
-  }
+  },
 };
 
-// TODO: Describe project better.  Links to what a WBS, PN, and Ghantt chart are.  Pics?
 function Card() {
   return (
     <div style={styles.card}>
-        <div style={styles.content}>
-          <img style={styles.image} src={WBSPic} alt="G" />
-          <>
-          <WBSBuilder />   
-          </>
-        </div>
+      <div style={styles.content}></div>
     </div>
   );
 }
