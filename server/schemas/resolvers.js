@@ -14,6 +14,12 @@ const resolvers = {
       if (context.user) {
         return User.findOne({ _id: context.user._id });
       }
+      // projects: async () => {
+      //   return Project.find();
+      // },
+      // project: async (_, args) => {
+      //   return Project.findOne({ _id: args.id });
+      // };
       throw new AuthenticationError('You need to be logged in!');
     },
   },
