@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 
 const styles = {
@@ -8,9 +8,7 @@ const styles = {
     marginLeft: 20,
     marginRight: 20,
     background: "#2f2f2f",
-    justifyContent: 'center',
-    
-
+    justifyContent: "center",
   },
   button: {
     display: "flex",
@@ -27,18 +25,16 @@ const styles = {
 };
 
 function Navbar() {
-    return (
-      <nav >
-        <div style={styles.navbar}>
-          <Link to="/signin" className="button"   style={styles.button}>
-            Sign In
-          </Link>
-          <Link to="/signup" className="button"   style={styles.button}>
-           Sign Up
-          </Link>
-        </div>
-      </nav>
-    );
-  }
-  
-  export default Navbar;
+  return (
+      <div style={styles.navbar}>
+        <Link to="/signin" className="button" style={styles.button}>
+          Sign In
+        </Link>
+        <Link to="/signup" className="button" style={styles.button}>
+          Sign Up
+        </Link>
+      </div>
+  );
+}
+
+export default Navbar;

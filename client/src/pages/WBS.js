@@ -1,5 +1,4 @@
 import React from "react";
-
 import "bootstrap/dist/css/bootstrap.css";
 
 const styles = {
@@ -14,7 +13,6 @@ const styles = {
     minHeight: 50,
     lineHeight: 3.5,
     fontSize: "2.0rem",
-    // color: "white",
     padding: "0 20px",
     borderTopLeftRadius: 8,
     borderTopRightRadius: 8,

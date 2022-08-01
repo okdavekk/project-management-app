@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 
 const styles = {
@@ -18,51 +19,27 @@ const styles = {
     alignItems: "center",
     borderRadius: 8,
     margin: 4,
+    padding: 4,
+    textDecoration: "none",
   },
 };
 
-function Navbar({ setPage }) {
+function Navbar() {
   return (
-    <nav>
-      <div
-        className="button btn-group-toggle"
-        data-toggle="buttons"
-        style={styles.navbar}
-      >
-        <button
-          className="button"
-          style={styles.button}
-          href="#Projects"
-          onClick={() => setPage("Projects")}
-        >
-          Projects
-        </button>
-        <button
-          className="button"
-          style={styles.button}
-          href="#PN"
-          onClick={() => setPage("PN")}
-        >
+      <div style={styles.navbar}>
+        <Link to="/Project" className="button" style={styles.button}>
+          Back to Project
+        </Link>
+        <Link to="/PN" className="button" style={styles.button}>
           PN
-        </button>
-        <button
-          className="button"
-          style={styles.button}
-          href="#Ghantt"
-          onClick={() => setPage("Ghantt")}
-        >
+        </Link>
+        <Link to="/Ghantt" className="button" style={styles.button}>
           Ghantt
-        </button>
-        <button
-          className="button"
-          style={styles.button}
-          href="#SignOut"
-          onClick={() => setPage("SignOut")}
-        >
+        </Link>
+        <Link to="/signout" className="button" style={styles.button}>
           Sign Out
-        </button>
+        </Link>
       </div>
-    </nav>
   );
 }
 
