@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 
 const styles = {
@@ -7,9 +8,7 @@ const styles = {
     marginLeft: 20,
     marginRight: 20,
     background: "#2f2f2f",
-    justifyContent: 'center',
-    
-
+    justifyContent: "center",
   },
   button: {
     display: "flex",
@@ -20,23 +19,19 @@ const styles = {
     alignItems: "center",
     borderRadius: 8,
     margin: 4,
-
+    padding: 4,
+    textDecoration: "none",
   },
 };
 
+function Navbar() {
+  return (
+      <div style={styles.navbar}>
+        <Link to="/signin" className="button" style={styles.button}>
+          Sign In
+        </Link>
+      </div>
+  );
+}
 
-function Navbar({setPage}) {
-    return (
-   
-      <nav >
-        <div className="button btn-group-toggle" data-toggle="buttons" style={styles.navbar}>
-        <button className="button"   style={styles.button}
-          href="#SignIn" onClick={() => setPage('SignIn')}>
-           Sign In
-        </button>
-        </div>
-      </nav>
-    );
-  }
-  
-  export default Navbar;
+export default Navbar;
