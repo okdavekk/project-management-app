@@ -1,5 +1,6 @@
 // TODO: fix all of the below for sign up
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
@@ -78,36 +79,45 @@ const Signup = () => {
   return (
     <div style={styles.card}>
       <h1 style={styles.heading}>Sign Up</h1>
+      {data ? (
+        <p>
+          Success! Taking you to <Link to="/Projects">your projects page.</Link>
+        </p>
+      ) : (
+        <form style={styles.content} onSubmit={handleFormSubmit}>
+          <input
+            style={styles.input}
+            placeholder="Username?"
+            name="username"
+            type="text"
+            value={formState.name}
+            onChange={handleChange}
+          />
+          <input
+            style={styles.input}
+            placeholder="Email?"
+            name="email"
+            type="email"
+            value={formState.email}
+            onChange={handleChange}
+          />
+          <input
+            style={styles.input}
+            placeholder="Password?"
+            name="password"
+            type="password"
+            value={formState.password}
+            onChange={handleChange}
+          />
+          <button className="button" style={styles.button} type="submit">
+            Submit
+          </button>
+        </form>
+      )}
 
-      <form style={styles.content} onSubmit={handleFormSubmit}>
-        <input
-          style={styles.input}
-          placeholder="Your username"
-          name="username"
-          type="text"
-          value={formState.name}
-          onChange={handleChange}
-        />
-        <input
-          style={styles.input}
-          placeholder="Your email"
-          name="email"
-          type="email"
-          value={formState.email}
-          onChange={handleChange}
-        />
-        <input
-          style={styles.input}
-          placeholder="You password"
-          name="password"
-          type="password"
-          value={formState.password}
-          onChange={handleChange}
-        />
-        <button className="button" style={styles.button} type="submit">
-          Submit
-        </button>
-      </form>
+      {error && (
+        <div className="my-3 p-3 bg-danger text-white">{error.message}</div>
+      )}
     </div>
   );
 };
