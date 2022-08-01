@@ -9,7 +9,7 @@ const typeDefs = gql`
     thoughts: [Thought]!
   }
 
-  type Thought {
+  type Project {
     _id: ID
     thoughtText: String
     thoughtAuthor: String
