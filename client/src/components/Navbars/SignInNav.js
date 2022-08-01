@@ -30,9 +30,6 @@ function Navbar() {
     return (
       <nav >
         <div style={styles.navbar}>
-          <Link to="/signin" className="button"   style={styles.button}>
-            Sign In
-          </Link>
           <Link to="/signup" className="button"   style={styles.button}>
            Sign Up
           </Link>
