@@ -100,7 +100,7 @@ const Login = () => {
           />
           <input
             style={styles.input}
-            placeholder="You password"
+            placeholder="Password"
             name="password"
             type="password"
             value={formState.password}

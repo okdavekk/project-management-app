@@ -92,7 +92,7 @@ function App() {
               }
             />
             <Route
-              path="/Project"
+              path="/Project/"
               element={
                 <>
                   <ProjectNav />
@@ -137,7 +137,7 @@ function App() {
               } 
             />
             <Route
-              path="/Signout"
+              path="/signout"
               element={
                 <>
                   <SignedOutNav />
