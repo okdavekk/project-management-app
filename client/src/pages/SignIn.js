@@ -1,7 +1,9 @@
 // TODO: fix all of the below for sign in
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
-import { validateEmail } from "../utils/helpers";
+import Auth from "../utils/auth";
+// import { useMutation } from "@apollo/client";
+// import { LOGIN_USER } from "../utils/mutations";
 
 const styles = {
   button: {
@@ -25,7 +27,7 @@ const styles = {
   },
   heading: {
     fontWeight: 900,
-    background: "#ff706b",    
+    background: "#ff706b",
     minHeight: 50,
     lineHeight: 3.5,
     fontSize: "2.0rem",
@@ -39,83 +41,73 @@ const styles = {
   },
 };
 
-
 // TODO: fix all of the below for sign in
-function Form() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
+const Login = (props) => {
+  const [formState, setFormState] = useState({ email: "", password: "" });
+  // const [login, { error, data }] = useMutation(LOGIN_USER);
 
-  const handleInputChange = (e) => {
-    const { target } = e;
-    const inputType = target.name;
-    const inputValue = target.value;
+  // update state based on form input changes
+  const handleChange = (event) => {
+    const { name, value } = event.target;
 
-    if (inputType === "name") {
-      setName(inputValue);
-    }
-    if (inputType === "email") {
-      setEmail(inputValue);
-    }
-    if (inputType === "message") {
-      setMessage(inputValue);
-    }
-    
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
   };
 
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
+  // submit form
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    console.log(formState);
+    try {
+      // const { data } = await login({
+        // variables: { ...formState },
+      // });
 
-    if (!validateEmail(email)) {
-      alert("Email is invalid");
-      return;
+      // Auth.login(data.login.token);
+    } catch (e) {
+      console.error(e);
     }
 
-    setName("");
-    setEmail("");
-    setMessage("");
-    alert(`Hello: ${name}.  Thank you for adding your valid Email: ${email} and the Message: ${message}`);
+    // clear form values
+    setFormState({
+      email: "",
+      password: "",
+    });
   };
 
   return (
     <div style={styles.card}>
       <h1 style={styles.heading}>Sign In</h1>
 
-      <form className="form">
+      <form onSubmit={handleFormSubmit}>
         <input
-          style={styles.input}
-          value={name}
-          name="name"
-          onChange={handleInputChange}
-          type="text"
-          placeholder="name"
-        />
-
-        <input
-          style={styles.input}
-          value={email}
+          className="form-input"
+          placeholder="Your email"
           name="email"
-          onChange={handleInputChange}
-          type="text"
-          // email="text"
-          placeholder="email"
+          type="email"
+          value={formState.email}
+          onChange={handleChange}
         />
-
         <input
-          style={styles.input}
-          value={message}
-          name="message"
-          onChange={handleInputChange}
-          type="text"
-          placeholder="message"
+          className="form-input"
+          placeholder="******"
+          name="password"
+          type="password"
+          value={formState.password}
+          onChange={handleChange}
         />
-
-        <button style={styles.button} onClick={handleFormSubmit}>
+        <button
+          className="btn btn-block btn-primary"
+          style={{ cursor: "pointer" }}
+          type="submit"
+        >
           Submit
         </button>
       </form>
     </div>
   );
-}
+};
 
-export default Form;
+export default Login;
