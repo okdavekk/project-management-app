@@ -28,17 +28,17 @@ export const ADD_USER = gql`
 `;
 
 
-export const ADD_PROJECT = gql`
+// export const ADD_PROJECT = gql`
 
-`;
+// `;
 
-export const ADD_WBS = gql`
+// export const ADD_WBS = gql`
 
-`;
+// `;
 
-export const ADD_PN = gql`
+// export const ADD_PN = gql`
 
-`;
-export const ADD_GHANTT = gql`
+// `;
+// export const ADD_GHANTT = gql`
 
-`;
+// `;
