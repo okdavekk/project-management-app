@@ -79,8 +79,9 @@ const Signup = () => {
     <div style={styles.card}>
       <h1 style={styles.heading}>Sign Up</h1>
 
-      <form onSubmit={handleFormSubmit}>
+      <form style={styles.content} onSubmit={handleFormSubmit}>
         <input
+          style={styles.input}
           placeholder="Your username"
           name="username"
           type="text"
@@ -88,6 +89,7 @@ const Signup = () => {
           onChange={handleChange}
         />
         <input
+          style={styles.input}
           placeholder="Your email"
           name="email"
           type="email"
@@ -95,13 +97,16 @@ const Signup = () => {
           onChange={handleChange}
         />
         <input
-          placeholder="******"
+          style={styles.input}
+          placeholder="You password"
           name="password"
           type="password"
           value={formState.password}
           onChange={handleChange}
         />
-        <button type="submit">Submit</button>
+        <button className="button" style={styles.button} type="submit">
+          Submit
+        </button>
       </form>
     </div>
   );

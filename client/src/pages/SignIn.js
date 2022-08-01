@@ -5,7 +5,6 @@ import "bootstrap/dist/css/bootstrap.css";
 // import { useMutation } from "@apollo/client";
 // import { LOGIN_USER } from "../utils/mutations";
 
-
 const styles = {
   button: {
     display: "flex",
@@ -15,6 +14,7 @@ const styles = {
     alignItems: "center",
     borderRadius: 8,
     margin: 4,
+    cursor: "pointer",
   },
   input: {
     padding: 10,
@@ -63,9 +63,8 @@ const Login = (props) => {
     console.log(formState);
     try {
       // const { data } = await login({
-        // variables: { ...formState },
+      // variables: { ...formState },
       // });
-
       // Auth.login(data.login.token);
     } catch (e) {
       console.error(e);
@@ -82,8 +81,9 @@ const Login = (props) => {
     <div style={styles.card}>
       <h1 style={styles.heading}>Sign In</h1>
 
-      <form onSubmit={handleFormSubmit}>
+      <form style={styles.input} onSubmit={handleFormSubmit}>
         <input
+        style={styles.input}
           className="form-input"
           placeholder="Your email"
           name="email"
@@ -92,6 +92,7 @@ const Login = (props) => {
           onChange={handleChange}
         />
         <input
+        style={styles.input}
           className="form-input"
           placeholder="******"
           name="password"
@@ -100,8 +101,8 @@ const Login = (props) => {
           onChange={handleChange}
         />
         <button
-          className="btn btn-block btn-primary"
-          style={{ cursor: "pointer" }}
+          className="button"
+          style={styles.button}
           type="submit"
         >
           Submit
