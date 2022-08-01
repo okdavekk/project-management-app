@@ -7,6 +7,10 @@ const typeDefs = gql`
     email: String
     password: String
   }
+  type Project {
+  _id: ID
+  
+  }
 
   type Auth {
     token: ID!
