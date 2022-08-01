@@ -7,6 +7,10 @@ const typeDefs = gql`
     email: String
     password: String
   }
+  type Project {
+  _id: ID
+  
+  }
 
   type Auth {
     token: ID!
@@ -17,6 +21,8 @@ const typeDefs = gql`
     users: [User]
     user(id: ID!): User
     me: User
+    projects: [Project]
+    project(id: ID!): Project
   }
 
   type Mutation {
