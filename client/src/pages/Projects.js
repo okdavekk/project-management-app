@@ -1,6 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
-
+import EachProject from "../components/Projects/projects";
 const styles = {
   card: {
     margin: 20,
@@ -28,7 +28,7 @@ function Card() {
       <h1 className="d-flex align-items-center" style={styles.heading}>
         Projects
       </h1>
-      
+      <EachProject></EachProject>
     </div>
   );
 }

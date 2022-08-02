@@ -27,7 +27,7 @@ const styles = {
 function Navbar() {
   return (
       <div style={styles.navbar}>
-        <Link to="/project" className="button" style={styles.button}>
+        <Link to="/projects" className="button" style={styles.button}>
           Back to Project
         </Link>
         <Link to="/pn" className="button" style={styles.button}>
