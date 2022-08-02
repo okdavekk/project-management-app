@@ -35,7 +35,7 @@ const resolvers = {
     //  const token = signToken(project);
     //  return { token, project };
    // },
-    login: async (_, { email, password }) => {
+    login: async (_, { email, password }) => { // can change to username but change everywhere login method used
       const user = await User.findOne({ email });
 console.log(user);
       if (!user) {
