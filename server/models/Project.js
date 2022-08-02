@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-const bcrypt = require('bcrypt');
+
 
 const projectSchema = new Schema({
     name: {
@@ -7,6 +7,9 @@ const projectSchema = new Schema({
         required: true,
         unique: true,
         trim: true,
+    },
+    projectLeader: {
+        type: String,
     }
 
 });

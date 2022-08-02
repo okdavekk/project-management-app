@@ -1,6 +1,7 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
+
 const userSchema = new Schema({
   username: {
     type: String,
@@ -19,6 +20,8 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   }
+
+
 });
 
 userSchema.pre('save', async function (next) {
