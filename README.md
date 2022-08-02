@@ -7,6 +7,10 @@
 
 - [Project Description](#project-description)
 
+- [Technologies Used](#technologies-used)
+
+- [Screenshots](#screenshots)
+
 - [Authors and Acknowledgement](#authors-and-acknowledgement)
 
 ## Resources
@@ -175,4 +179,10 @@ Fulfilling all three of the following requirements to turn your app into a PWA w
 ---
 © 2022 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
 
-### Authors and Acknowledgement
+## Technologies Used
+
+## Screenshots
+
+
+## Authors and Acknowledgement
+Made by (ABC Order) Greg Chambers, Sergey Divachuk, James Giraldo, and David Kemp

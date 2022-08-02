@@ -44,7 +44,6 @@ const styles = {
   }
 };
 
-// TODO: Describe project better.  Links to what a WBS, PN, and Ghantt chart are.  Pics?
 function Card() {
   return (
     <div style={styles.card}>

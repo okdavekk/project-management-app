@@ -21,7 +21,7 @@ const styles = {
   },
 };
 
-// TODO: 
+// TODO: A project has a WBS, PN, and Ghantt
 function Card() {
   return (
     <div style={styles.card}>

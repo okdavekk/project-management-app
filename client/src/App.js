@@ -7,7 +7,6 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-// import { Switch } from "react-router";
 
 import About from "./pages/About";
 import Signin from "./pages/SignIn";
@@ -58,104 +57,8 @@ const styles = {
   },
 };
 
-// function App() {
-//   return (
-//     <ApolloProvider client={client}>
-//       <Router>
-//         <main style={styles.main}>
-//           <Header />
-//           <Routes>
-//             <Route path="/"
-//               element={
-//                 <>
-//                   <AboutNav />
-//                   <About />
-//                 </>
-//               }
-//             />
-//             <Route 
-//               path="/signin" 
-//               element={
-//                 <>
-//                 <SignInNav />
-//                 <Signin />
-//                 </>
-//               } 
-//             />
-//               <Route 
-//                 path="/signup" 
-//                 element={
-//                   <>
-//                   <SignUpNav />
-//                   <Signup />
-//                 </>
-//                 } 
-//               />
-//             <Route
-//               path="/projects"
-//               element={
-//                 <>
-//                   <SignedInNav />
-//                   <Projects />
-          
-//                 </>
-//               }>
-//               <Route
-//                 path="project"
-//                 element={
-//                   <>
-//                     <ProjectNav />
-//                     <Project />
-//                   </>
-//                 }>    
-//                   <Route
-//                   path="/wbs"
-//                   element={
-//                     <>
-//                       <WBSNav />
-//                       <WBS />
-//                     </>
-//                   }
-//                   />
-//                   <Route
-//                   path="/pn"
-//                   element={
-//                     <>
-//                     <PNNav />
-//                     <PN />
-//                   </>
-//                   }
-//                   />
-//                   <Route
-//                   path="/ghantt"
-//                   element={
-//                     <>
-//                     <GhanttNav />
-//                     <Ghantt />
-//                   </>
-//                   }
-//                   />
 
-//               </Route>
-//              </Route>
-//             />
-//             <Route
-//               path="/signout"
-//               element={
-//                 <>
-//                   <SignedOutNav />
-//                   <Signout />
-//                 </>
-//               }
-//             />
-//           </Routes>
-//           <Footer />
-//         </main>
-//       </Router>
-//     </ApolloProvider>
-//   );
-// }
-
+// TODO: Are these the right paths to everything we need to do?  
 function App() {
   return (
     <ApolloProvider client={client}>

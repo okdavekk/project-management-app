@@ -1,4 +1,3 @@
-// TODO: fix all of the below for sign up
 import React, { useState } from "react";
 
 import { useMutation } from "@apollo/client";
@@ -43,7 +42,6 @@ const styles = {
   },
 };
 
-// TODO: fix all of the below for sign up
 const Signup = () => {
   const [formState, setFormState] = useState({
     username: "",
