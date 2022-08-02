@@ -23,7 +23,6 @@ const styles = {
   },
 };
 
-// TODO: Call in WBS building util or place here.  The area may need to be in its own scroll type deal.
 function Card() {
   return (
     <div style={styles.card}>
