@@ -37,6 +37,21 @@ const resolvers = {
       const token = signToken(project);
       return { token, project };
     },
+    updateProject: async (parent, args, context) => {
+      if (context.user) {
+        return await Project.findByIdAndUpdate(context.project._id, args, { new: true });
+      }
+    },
+    removeProject: async (parent, {projectId}, context) => {
+      if (context.user) {
+        const updatedUser = await Project.findOneAndUpdate(
+          { _id: context.project._id },
+          { $pull: { savedProjects: { projectId: projectId } } },
+          { new: true }
+        );
+        return updatedUser;
+      }
+    },
     login: async (_, { email, password }) => {
       const user = await User.findOne({ email });
       console.log(user);
