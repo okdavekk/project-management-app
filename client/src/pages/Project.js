@@ -19,15 +19,20 @@ const styles = {
     borderTopRightRadius: 8,
     textAlign: "center",
   },
+  content: {
+    padding: 20,
+    color: "white",
+  },
 };
 
 // TODO: A project has a WBS, PN, and Ghantt
-function Card() {
+function Card(project) {
   return (
     <div style={styles.card}>
       <h1 className="d-flex align-items-center" style={styles.heading}>
         Project
       </h1>
+      <h3 style={styles.content} >Project Name: {project.name}   Manager: {project.projectLeader}</h3>
       
     </div>
   );

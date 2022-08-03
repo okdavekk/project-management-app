@@ -1,5 +1,5 @@
 import React from "react";
-// import {Link} from "react-router-dom"
+import {Link} from "react-router-dom"
 
 
 
@@ -15,12 +15,11 @@ const styles = {
 function EachProject({project}) {
 
   return (
-    <li>
-      <img src="https://placehold.it/200/200" alt="test"></img>
-      <h3>id: {project._id}  name: {project.name}   manager: {project.projectLeader}</h3>
-      {/* <Link to={`/projectId/${project._id}`}>See project</Link>  */}
+    <div style={styles.card}>
+      <h3>Project Name: {project.name} Manager: {project.projectLeader}</h3>
+      <Link to={`/projectId/${project._id}`}>See project: {project.name}</Link> 
 
-    </li>
+    </div>
   )
 }
 
