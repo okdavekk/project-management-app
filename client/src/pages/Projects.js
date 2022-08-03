@@ -1,6 +1,6 @@
 // import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
-import EachProject from "../components/Projects";
+import EachProject from "../components/EachProject";
 import Form from "../components/Form/Form";
 import { useQuery } from "@apollo/client";
 import { QUERY_PROJECTS } from "../../../client/src/utils/queries";
@@ -22,6 +22,9 @@ const styles = {
     borderTopRightRadius: 8,
     textAlign: "center",
   },
+  content: {
+    paddingBottom: 20,
+  },
 };
 
 // TODO: Call in Projects building util or place here.  The area may need to be in its own scroll type deal.
@@ -34,22 +37,12 @@ function Card() {
       <h1 className="d-flex align-items-center" style={styles.heading}>
         Projects
       </h1>
-      <Form></Form>
+      <Form />
 
       <div style={styles.card}>
-        <div>
-          <div>
-            <ul>
-              {projects.length > 0 &&
-                projects.map((project, index) => (
-                  <EachProject project={project} />
-                ))}
-            </ul>
-          </div>
-        </div>
-
-        <div>
-          <h3>{}</h3>
+        <div style={styles.content}>
+        {projects.length > 0 &&
+          projects.map((project, index) => <EachProject project={project} />)}
         </div>
       </div>
     </div>
