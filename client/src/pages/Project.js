@@ -1,5 +1,12 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
+import WBSCard from "../components/WBS/index";
+import PNCard from "../components/PN/index";
+import GhanttCard from "../components/Ghantt";
+// import { useQuery } from "@apollo/client";
+// import { QUERY_SINGLE_PROJECT } from "../../../client/src/utils/queries";
+
+
 
 const styles = {
   card: {
@@ -29,13 +36,17 @@ const styles = {
 
 // TODO: A project has a WBS, PN, and Ghantt
 function Card(project) {
+  // const { data } = useQuery(QUERY_SINGLE_PROJECT);
+  // const project = data?.projects || [];
   return (
     <div style={styles.card}>
       <h1 className="d-flex align-items-center" style={styles.heading}>
         Project
       </h1>
       <h3 style={styles.content} >Project Name: {project.name}   Manager: {project.projectLeader}</h3>
-      
+      <WBSCard></WBSCard>
+      <PNCard></PNCard>
+      <GhanttCard></GhanttCard>
     </div>
   );
 }

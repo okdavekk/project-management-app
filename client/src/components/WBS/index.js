@@ -43,7 +43,7 @@ const styles = {
   }
 };
 
-function Card() {
+function WBSCard() {
   return (
     <div style={styles.card}>
         <div style={styles.content}>
@@ -56,4 +56,4 @@ function Card() {
   );
 }
 
-export default Card;
+export default WBSCard;

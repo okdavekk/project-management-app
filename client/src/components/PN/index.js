@@ -44,7 +44,7 @@ const styles = {
   }
 };
 
-function Card() {
+function PNCard() {
   return (
     <div style={styles.card}>
         <div style={styles.content}>
@@ -57,4 +57,4 @@ function Card() {
   );
 }
 
-export default Card;
+export default PNCard;
