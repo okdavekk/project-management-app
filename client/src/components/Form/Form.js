@@ -1,71 +1,100 @@
 import React, { useState } from "react";
-import { useMutation, useQuery } from '@apollo/client';
-import { ADD_PROJECT } from '../../utils/mutations';
+import { useMutation, useQuery } from "@apollo/client";
+import { ADD_PROJECT } from "../../utils/mutations";
+
+const styles = {
+  button: {
+    display: "flex",
+    background: "#ff706b",
+    fontSize: "1.2rem",
+    color: "white",
+    alignItems: "center",
+    borderRadius: 8,
+    margin: 4,
+    cursor: "pointer",
+  },
+  input: {
+    padding: 10,
+    borderRadius: 8,
+    margin: 4,
+  },
+  card: {
+    margin: 20,
+    background: "#1f1f1f",
+    borderRadius: 8,
+  },
+  heading: {
+    fontWeight: 900,
+    background: "#ff706b",
+    minHeight: 50,
+    lineHeight: 3.5,
+    fontSize: "2.0rem",
+    padding: "0 20px",
+    borderTopLeftRadius: 8,
+    borderTopRightRadius: 8,
+  },
+  content: {
+    padding: 20,
+    color: "white",
+  },
+};
 
 function Form() {
-     const [project, setproject] = useState()
-    const [formState, setFormState] = useState({
-    name: '',
-    projectLeader: ''
+  const [project, setproject] = useState();
+  const [formState, setFormState] = useState({
+    name: "",
+    projectLeader: "",
   });
-  const [addProject, {error}] = useMutation(ADD_PROJECT);
+  const [addProject, { error }] = useMutation(ADD_PROJECT);
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
-        const { name, value } = addProject({
-          variables: { ...formState },
-        });
-  
-        window.location.reload();
-      } catch (err) {
-        console.error(err);
-      }
-  }
+      const { name, value } = addProject({
+        variables: { ...formState },
+      });
+
+      window.location.reload();
+    } catch (err) {
+      console.error(err);
+    }
+  };
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    
     setFormState({ ...formState, [name]: value });
-    console.log(formState)
-    
-    
-  }
+    console.log(formState);
+  };
   return (
     <form
-    className="flex-row justify-center justify-space-between-md align-center"
-    onSubmit={handleFormSubmit}
-  >
-    <div className="col-12">
-      <textarea
-        name="name"
-        placeholder="Name your project"
-        value={formState.name}
-        className="form-input w-100"
-        onChange={handleChange}
-      ></textarea>
-    </div>
-    <div className="col-12 col-lg-9">
-      <input
-        name="projectLeader"
-        placeholder="enter who is in charge of project"
-        value={formState.projectLeader}
-        className="form-input w-100"
-        onChange={handleChange}
+      style={styles.content}
+      onSubmit={handleFormSubmit}
+    >
+      <input style={styles.input}
+          name="name"
+          placeholder="Name your project"
+          value={formState.name}
+          className="form-input w-100"
+          onChange={handleChange}
       />
-    </div>
+      <input style={styles.input}
+          name="projectLeader"
+          placeholder="enter who is in charge of project"
+          value={formState.projectLeader}
+          className="form-input w-100"
+          onChange={handleChange}
+        />
 
-    <div className="col-12 col-lg-3">
-      <button className="btn btn-primary btn-block py-3" type="submit">
-        Add project
-      </button>
-    </div>
-    {error && (
-          <div className="col-12 my-3 bg-danger text-white p-3">
-            Something went wrong...
-          </div>
-        )}
-  </form>
-  )
+      
+        <button className="button" style={styles.button} type="submit">
+          Add project
+        </button>
+      {error && (
+        <div className="col-12 my-3 bg-danger text-white p-3">
+          Something went wrong...
+        </div>
+      )}
+    </form>
+  );
 }
 
-export default Form
+export default Form;
