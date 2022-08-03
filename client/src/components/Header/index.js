@@ -17,12 +17,19 @@ const styles = {
   h3: {
     fontSize: "1.5rem",
   },
+  button: {
+    background: "#1f1f1f",
+    color: "#ffffff",
+  }
 };
 
 function Header() {
   return (
     <header style={styles.header}>
       <h1 style={styles.h1}>Project Management App</h1>
+      <div>
+        <button style={styles.button} className="buttonInstall" >Install App!</button>
+      </div>
     </header>
   );
 }
