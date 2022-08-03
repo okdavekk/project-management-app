@@ -66,11 +66,19 @@ function App() {
         <main style={styles.main}>
           <Header />
           <Routes>
+            {/* theseare our views */}
+            {/* what are the pages or views that a user will experience
+            landingpage => /
+            login=> /signin
+            siugnup => singup
+            logout -> /logout
+            seeAll my projects /projects  => query all projects mutate - add project delete project update
+            seeOneproject /project/:projectId */}
             {/* MAIN PATHS */}
             <Route path="/" element={<><AboutNav /> <About /></>} />
-            <Route path="signin" element={<><SignInNav /> <Signin /></>}/>
-            <Route path="signup" element={<><SignUpNav /> <Signup /></>}/>
-            <Route path="signout" element={<><SignedOutNav /> <Signout /></>}/>
+            <Route path="/signin" element={<><SignInNav /> <Signin /></>}/>
+            <Route path="/signup" element={<><SignUpNav /> <Signup /></>}/>
+            <Route path="/signout" element={<><SignedOutNav /> <Signout /></>}/>
 
             {/* PROJECTS PATHS */}
             <Route path="projects" element={<><SignedInNav /> <Projects /></>}/>
