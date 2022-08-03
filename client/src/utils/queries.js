@@ -14,30 +14,37 @@ export const QUERY_USER = gql`
 `;
 
 export const QUERY_PROJECTS = gql`
-  query getProjects()
-
+  query getProjects {
+    projects {
+    _id
+    name
+    projectLeader
+    }
+  }
 `;
 
 // Projects have WBS, PNs, and GHANTTs
-export const QUERY_SINGLE_PROJECT = gql`
-  query getSingleProject()
-  }
-`;
+// export const QUERY_SINGLE_PROJECT = gql`
+//   query getSingleProject($args.id: _id!)
+//   }
+// `;
 
-export const QUERY_WBS = gql`
-  query getWBS()
-  }
-`;
+// export const QUERY_WBS = gql`
+//   query getWBS{
+//   }
+  
+// `;
 
-export const QUERY_PN = gql`
-  query getPN()
-  }
-`;
+// export const QUERY_PN = gql`
+//   query getPN{
+//   }
+  
+// `;
 
-export const QUERY_GHANT = gql`
-  query getGhantt()
-  }
-`;
+// export const QUERY_GHANT = gql`
+//   query getGhantt{
+//   }
+// `;
 
 
 
