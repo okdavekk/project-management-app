@@ -1,7 +1,16 @@
 const { Schema, model } = require('mongoose');
-const bcrypt = require('bcrypt');
+
 
 const projectSchema = new Schema({
+    name: {
+        type: String,
+        required: true,
+        unique: true,
+        trim: true,
+    },
+    projectLeader: {
+        type: String,
+    }
 
 });
 const Project = model('Project', projectSchema);

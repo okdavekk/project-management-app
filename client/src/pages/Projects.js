@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
+import EachProject from "../components/Projects/projects";
+import Form from '../components/Form/Form'
 
 const styles = {
   card: {
@@ -22,13 +24,15 @@ const styles = {
 };
 
 // TODO: Call in Projects building util or place here.  The area may need to be in its own scroll type deal.
+
 function Card() {
   return (
     <div style={styles.card}>
       <h1 className="d-flex align-items-center" style={styles.heading}>
         Projects
       </h1>
-      
+      <Form></Form>
+      <EachProject></EachProject>
     </div>
   );
 }
