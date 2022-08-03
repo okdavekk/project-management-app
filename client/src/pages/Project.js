@@ -24,6 +24,8 @@ const styles = {
     color: "white",
   },
 };
+//TODO: Query single project.. Look into useparams from react router dom. Every activity from unit 21.
+
 
 // TODO: A project has a WBS, PN, and Ghantt
 function Card(project) {
