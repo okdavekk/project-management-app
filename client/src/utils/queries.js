@@ -24,8 +24,8 @@ export const QUERY_PROJECTS = gql`
 
 // Projects have WBS, PNs, and GHANTTs
 export const QUERY_SINGLE_PROJECT = gql`
-  query getSingleProject {
-    projects {
+  query getSingleProject($id: ID!) {
+    project(id: $id) {
       _id
       name
       projectLeader

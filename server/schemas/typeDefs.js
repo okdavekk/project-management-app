@@ -12,7 +12,7 @@ const typeDefs = gql`
   _id: ID
   name: String
   projectLeader: String
-  
+
   }
   type WBS {
   _id: ID
@@ -56,8 +56,10 @@ const typeDefs = gql`
     addUser(email:String!, username:String!, password:String!): Auth
     login(email:String!, password:String!): Auth
     addProject(name:String!, projectLeader:String!): Project
-    updateProject(_id: ID!, name: String, projectLeader:String!): Project
-    removeProject(ProjectId: String!): User
+    updateProject(id: ID!, name: String, projectLeader:String!): Project
+    removeProject(id: ID!): Project
+    removeProjectFromMe(id: ID!): User
+    addProjectToMe(id: ID!): User
   }
 `;
 

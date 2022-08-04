@@ -37,7 +37,8 @@ const styles = {
 // TODO: A project has a WBS, PN, and Ghantt
 function Card() {
   const { data } = useQuery(QUERY_SINGLE_PROJECT);
-  const project = data?.projects || [];
+  const project = data?.project || {name: "Unavailable", projectLeader: "Unavailable"};
+  console.log("project", project)
   return (
     <div style={styles.card}>
       <h1 className="d-flex align-items-center" style={styles.heading}>
