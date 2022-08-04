@@ -23,7 +23,7 @@ const userSchema = new Schema({
   savedProjects: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'Product'
+      ref: 'Project'
     }
   ]
 });
