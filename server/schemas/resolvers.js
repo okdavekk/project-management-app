@@ -1,9 +1,7 @@
 const { AuthenticationError } = require('apollo-server-express');
-// <<<<<<< HEAD
-const { User, WBS, Ghantt, PN } = require('../models');
-// =======
-const { Project, User } = require('../models');
-// >>>>>>> ef93375baf98b4a022b89518c16776fb18b632e3
+
+const { User, WBS, Ghantt, PN, Project } = require('../models');
+
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -34,15 +32,15 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    addPn: async (_, args) => {
-      const pn = await PN.create(args);
+    addProjectNetwork: async (_, args) => {
+      const ProjectNetwork = await ProjectNetwork.create(args);
       const token = signToken(pn);
-      return { token, pn };
+      return { token, ProjectNetwork };
     },
-    addWbs: async (_, args) => {
-      const wbs = await WBS.create(args);
-      const token = signToken(wbs);
-      return { token, wbs };
+    addWorkBreakdownStructure: async (_, args) => {
+      const WorkBreakdownStructure = await WorkBreakdownStructure.create(args);
+      const token = signToken(WorkBreakdownStructure);
+      return { token, WorkBreakdownStructure };
     },
     addGhantt: async (_, args) => {
       const ghantt = await Ghantt.create(args);

@@ -1,6 +1,6 @@
 const User = require('./User');
 const Project = require('./Project')
-const WBS = require('./WBS')
-const PN = require('./PN')
+const WorkBreakdownStructure = require('./WorkBreakdownStructure')
+const ProjectNetwork = require('./ProjectNetwork')
 const Ghantt = require('./Ghantt')
-module.exports = { User, Project, WBS, PN, Ghantt};
+module.exports = { User, Project, WorkBreakdownStructure, ProjectNetwork, Ghantt};

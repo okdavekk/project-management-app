@@ -14,13 +14,13 @@ const typeDefs = gql`
   projectLeader: String
 
   }
-  type WBS {
+  type WorkBreakdownStructure {
   _id: ID
   name: String
   
   
   }
-  type PN {
+  type ProjectNetwork {
   _id: ID
   name: String
   
@@ -60,6 +60,9 @@ const typeDefs = gql`
     removeProject(id: ID!): Project
     removeProjectFromMe(id: ID!): User
     addProjectToMe(id: ID!): User
+    addGhantt(name: String): Ghantt
+    addProjectNetwork(name: String): ProjectNetwork
+    addWorkBreakdownStructure(name: String): WorkBreakdownStructure
   }
 `;
 
