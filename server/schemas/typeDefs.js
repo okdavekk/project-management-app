@@ -1,4 +1,4 @@
-const { gql } = require('apollo-server-express');
+const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
   type User {
@@ -9,39 +9,32 @@ const typeDefs = gql`
     savedProjects: [Project]
   }
   type Project {
-  _id: ID
-  name: String
-  projectDescription: String
-
+    _id: ID
+    name: String
+    projectDescription: String
   }
   type WorkBreakdownStructure {
-  _id: ID
-  name: String
-  
-  
+    _id: ID
+    name: String
   }
   type ProjectNetwork {
-  _id: ID
-  name: String
-  
-  
+    _id: ID
+    name: String
   }
   type Ghantt {
-  _id: ID
-  name: String
-  
-  
+    _id: ID
+    name: String
   }
 
   type Auth {
     token: ID!
     user: User
   }
-  input SavedProjectInput{
+  input SavedProjectInput {
     _id: ID
-  name: String
-  projectDescription: String
-  ProjectId: String
+    name: String
+    projectDescription: String
+    ProjectId: String
   }
 
   type Query {
@@ -53,11 +46,11 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    addUser(email:String!, username:String!, password:String!): Auth
-    login(email:String!, password:String!): Auth
-    addProject(name:String!, projectDescription:String!): Project
-    updateProject(id: ID!, name: String, projectDescription:String!): Project
-    removeProject(id: ID!): Project
+    addUser(email: String!, username: String!, password: String!): Auth
+    login(email: String!, password: String!): Auth
+    addProject(name: String!, projectDescription: String!): Project
+    updateProject(id: ID!, name: String, projectDescription: String!): Project
+    removeProject: Project
     removeProjectFromMe(id: ID!): User
     addProjectToMe(id: ID!): User
     addGhantt(name: String): Ghantt

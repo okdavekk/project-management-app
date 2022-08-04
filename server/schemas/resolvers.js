@@ -59,18 +59,21 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-    removeProject: async (_, { id }, context) => {
-      if (context.user) {
-        await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $pull: { savedProjects: id } },
-          { new: true }
-        );
-        const project = await Project.findByIdAndDelete(id);
+    // removeProject: async (_, { id }, context) => {
+    //   if (context.user) {
+    //     await User.findOneAndUpdate(
+    //       { _id: context.user._id },
+    //       { $pull: { savedProjects: id } },
+    //       { new: true }
+    //     );
+    //     const project = await Project.findByIdAndDelete(id);
 
-        return project;
-      }
-      throw new AuthenticationError('You need to be logged in!');
+    //     return project;
+    //   }
+    //   throw new AuthenticationError('You need to be logged in!');
+    // },
+    removeProject: async (project , {id}) => {
+      return await User.findByIdAndRemove({_id:id})
     },
     removeProjectFromMe: async (_, { id }, context) => {
       if (context.user) {

@@ -18,7 +18,7 @@ const styles = {
 
 function UpdateProject() {
   return (
-    <button style={styles.buttonUpdate} tpye="submit">
+    <button style={styles.buttonUpdate} type="submit">
       Update
     </button>
   );
