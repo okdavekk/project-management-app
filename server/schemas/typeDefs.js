@@ -12,7 +12,7 @@ const typeDefs = gql`
   _id: ID
   name: String
   projectLeader: String
-  
+
   }
 
   type Auth {
@@ -39,7 +39,9 @@ const typeDefs = gql`
     login(email:String!, password:String!): Auth
     addProject(name:String!, projectLeader:String!): Project
     updateProject(id: ID!, name: String, projectLeader:String!): Project
-    removeProject(ProjectId: String!): User
+    removeProject(id: ID!): Project
+    removeProjectFromMe(id: ID!): User
+    addProjectToMe(id: ID!): User
   }
 `;
 

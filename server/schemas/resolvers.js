@@ -1,18 +1,18 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User } = require('../models');
+const { Project, User } = require('../models');
 const { signToken } = require('../utils/auth');
-const { Project } = require('../models')
+
 const resolvers = {
   Query: {
     users: async () => {
       return User.find();
     },
     user: async (_, args) => {
-      return User.findOne({ _id: args.id });
+      return User.findById(args.id);
     },
-    me: async (_, args, context) => {
+    me: async (_, __, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id });
+        return User.findById(context.user._id);
       }
       throw new AuthenticationError('You need to be logged in!');
     },
@@ -20,10 +20,8 @@ const resolvers = {
       return Project.find();
     },
     project: async (_, args) => {
-      return Project.findOne({ _id: args.id });
+      return Project.findById(args.id);
     },
-
-
   },
 
   Mutation: {
@@ -37,20 +35,46 @@ const resolvers = {
       const token = signToken(project);
       return { token, project };
     },
-    updateProject: async (parent, args, context) => {
+    updateProject: async (_, { id, name, projectLeader }, context) => {
       if (context.user) {
-        return await Project.findByIdAndUpdate(args.id, args, { new: true });
+        return await Project.findByIdAndUpdate(id, { name, projectLeader }, { new: true });
       }
+      throw new AuthenticationError('You need to be logged in!');
     },
-    removeProject: async (parent, {projectId}, context) => {
+    removeProject: async (_, { id }, context) => {
       if (context.user) {
-        const updatedUser = await Project.findOneAndUpdate(
-          { _id: project._id },
-          { $pull: { savedProjects: { projectId: projectId } } },
+        await User.findOneAndUpdate(
+          { savedProjects: projectId },
+          { $pull: { savedProjects: id } },
+          { new: true }
+        );
+        const project = await Project.findByIdAndDelete(id);
+
+        return project;
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
+    removeProjectFromMe: async (_, { id }, context) => {
+      if (context.user) {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { savedProjects: id } },
           { new: true }
         );
         return updatedUser;
       }
+      throw new AuthenticationError('You need to be logged in!');
+    },
+    addProjectToMe: async (_, { id }, context) => {
+      if (context.user) {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $push: { savedProjects: id } },
+          { new: true }
+        );
+        return updatedUser;
+      }
+      throw new AuthenticationError('You need to be logged in!');
     },
     login: async (_, { email, password }) => {
       const user = await User.findOne({ email });
