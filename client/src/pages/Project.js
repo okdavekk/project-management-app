@@ -49,9 +49,9 @@ function Card() {
   return (
     <div style={styles.card}>
       <h1 className="d-flex align-items-center" style={styles.heading}>
-        Project
+        {project.name}
       </h1>
-      <h3 style={styles.content} >Project Name: {project.name}   Manager: {project.projectLeader}</h3>
+      <h3 style={styles.content} >Manager: {project.projectLeader}</h3>
       {/* <WBSCard></WBSCard>
       <PNCard></PNCard>
       <GhanttCard></GhanttCard> */}

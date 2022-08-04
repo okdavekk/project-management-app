@@ -1,11 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import DeleteButton from "./DeleteButton";
+import UpdateButton from "./UpdateButton";
 
 const styles = {
   card: {
     display: "flex",
     textAlignVertical: "center",
-    // margin: 20,
+    marginTop: 20,
+    marginBottom: 20,
     background: "#1f1f1f",
     borderRadius: 8,
     color: "white",
@@ -26,7 +29,8 @@ const styles = {
     textAlignVertical: "center",
     marginBottom: -8,
     testAlign: "center",
-    paddingTop: 5,
+    paddingTop: 12,
+    fontSize: 20,
   },
   buttonView: {
     display: "flex",
@@ -71,8 +75,8 @@ function EachProject({ project }) {
   return (
     <div style={styles.card}>
       <Link to={`/projectId/${project._id}`} style={styles.buttonView}>View</Link>
-      <button  style={styles.buttonUpdate}>Update</button>
-      <button  style={styles.buttonDelete}>Delete</button>
+      <UpdateButton />
+      <DeleteButton />
       <h3 style={styles.h3}>Project Title: {project.name}  Manager: {project.projectLeader}</h3>
       <div style={styles.navbar}></div>
     </div>
