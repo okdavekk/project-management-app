@@ -53,9 +53,9 @@ const resolvers = {
       const token = signToken(project);
       return { token, project };
     },
-    updateProject: async (_, { id, name, projectLeader }, context) => {
+    updateProject: async (_, { id, name, projectDescription }, context) => {
       if (context.user) {
-        return await Project.findByIdAndUpdate(id, { name, projectLeader }, { new: true });
+        return await Project.findByIdAndUpdate(id, { name, projectDescription }, { new: true });
       }
       throw new AuthenticationError('You need to be logged in!');
     },

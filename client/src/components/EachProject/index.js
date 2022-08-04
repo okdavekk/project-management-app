@@ -53,7 +53,7 @@ function EachProject({ project }) {
       <Link to={`/projectId/${project._id}`} style={styles.buttonView}>View</Link>
       <UpdateButton />
       <DeleteButton />
-      <h3 style={styles.h3}>Project Title: {project.name}  Manager: {project.projectLeader}</h3>
+      <h3 style={styles.h3}>Project Title: {project.name}   </h3>
       <div style={styles.navbar}></div>
     </div>
   );

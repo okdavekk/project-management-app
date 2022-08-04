@@ -11,7 +11,7 @@ const typeDefs = gql`
   type Project {
   _id: ID
   name: String
-  projectLeader: String
+  projectDescription: String
 
   }
   type WorkBreakdownStructure {
@@ -40,7 +40,7 @@ const typeDefs = gql`
   input SavedProjectInput{
     _id: ID
   name: String
-  projectLeader: String
+  projectDescription: String
   ProjectId: String
   }
 
@@ -55,8 +55,8 @@ const typeDefs = gql`
   type Mutation {
     addUser(email:String!, username:String!, password:String!): Auth
     login(email:String!, password:String!): Auth
-    addProject(name:String!, projectLeader:String!): Project
-    updateProject(id: ID!, name: String, projectLeader:String!): Project
+    addProject(name:String!, projectDescription:String!): Project
+    updateProject(id: ID!, name: String, projectDescription:String!): Project
     removeProject(id: ID!): Project
     removeProjectFromMe(id: ID!): User
     addProjectToMe(id: ID!): User

@@ -8,7 +8,7 @@ const projectSchema = new Schema({
         unique: true,
         trim: true,
     },
-    projectLeader: {
+    projectDescription: {
         type: String,
     }
 

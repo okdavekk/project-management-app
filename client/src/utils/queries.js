@@ -17,7 +17,7 @@ export const QUERY_PROJECTS = gql`
     projects {
       _id
       name
-      projectLeader
+      projectDescription
     }
   }
 `;
@@ -28,7 +28,7 @@ export const QUERY_SINGLE_PROJECT = gql`
     project(id: $id) {
       _id
       name
-      projectLeader
+      projectDescription
     }
   }
 `;

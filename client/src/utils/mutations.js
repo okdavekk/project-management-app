@@ -26,21 +26,21 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_PROJECT = gql`
-  mutation addProject($name: String!, $projectLeader: String!) {
-    addProject(name: $name, projectLeader: $projectLeader) {
+  mutation addProject($name: String!, $projectDescription: String!) {
+    addProject(name: $name, projectDescription: $projectDescription) {
       _id
       name
-      projectLeader
+      projectDescription
     }
   }
 `;
 
 // export const DELETE_PROJECT = gql`
-//   mutation deleteProject($id: String!, $projectLeader: String!) {
-//     deleteProject(name: $name, projectLeader: $projectLeader) {
+//   mutation deleteProject($id: String!, $projectDescription: String!) {
+//     deleteProject(name: $name, projectDescription: $projectDescription) {
 //       _id
 //       name
-//       projectLeader
+//       projectDescription
 //     }
 //   }
 // `;
