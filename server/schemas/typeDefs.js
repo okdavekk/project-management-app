@@ -14,6 +14,24 @@ const typeDefs = gql`
   projectLeader: String
   
   }
+  type WBS {
+  _id: ID
+  name: String
+  
+  
+  }
+  type PN {
+  _id: ID
+  name: String
+  
+  
+  }
+  type Ghantt {
+  _id: ID
+  name: String
+  
+  
+  }
 
   type Auth {
     token: ID!
