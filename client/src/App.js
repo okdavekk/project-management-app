@@ -81,6 +81,12 @@ function App() {
             <Route path="/signout" element={<><SignedOutNav /> <Signout /></>}/>
             <Route path="/projects" element={<><SignedInNav /> <Projects /></>}/>
             <Route path="/projectId/:id" element={<><ProjectNav /> <Project /></>}/>
+            <Route path="/projectId/:id/wbs" element={<><WBSNav /> <WBS /></>}/>
+            <Route path="/projectId/:id/pn" element={<><PNNav /> <PN /></>}/>
+            <Route path="/projectId/:id/ghantt" element={<><GhanttNav /> <Ghantt /></>}/>
+
+
+
           </Routes>
            <Footer />
           </main>
