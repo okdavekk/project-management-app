@@ -39,13 +39,13 @@ const resolvers = {
     },
     updateProject: async (parent, args, context) => {
       if (context.user) {
-        return await Project.findByIdAndUpdate(context.project._id, args, { new: true });
+        return await Project.findByIdAndUpdate(args.id, args, { new: true });
       }
     },
     removeProject: async (parent, {projectId}, context) => {
       if (context.user) {
         const updatedUser = await Project.findOneAndUpdate(
-          { _id: context.project._id },
+          { _id: project._id },
           { $pull: { savedProjects: { projectId: projectId } } },
           { new: true }
         );
