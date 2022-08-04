@@ -71,14 +71,14 @@ function Form() {
     >
       <input style={styles.input}
           name="name"
-          placeholder="Name your project"
+          placeholder="Name the Project"
           value={formState.name}
           className="form-input w-100"
           onChange={handleChange}
       />
       <input style={styles.input}
           name="projectLeader"
-          placeholder="enter who is in charge of project"
+          placeholder="Who is the Project Manager?"
           value={formState.projectLeader}
           className="form-input w-100"
           onChange={handleChange}
@@ -86,7 +86,7 @@ function Form() {
 
       
         <button className="button" style={styles.button} type="submit">
-          Add project
+          Add Project
         </button>
       {error && (
         <div className="col-12 my-3 bg-danger text-white p-3">

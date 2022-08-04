@@ -5,7 +5,9 @@ import {Link} from "react-router-dom"
 
 const styles = {
   card: {
-    margin: 20,
+    display: "flex",
+    textAlignVertical: "center",
+    // margin: 20,
     background: "#1f1f1f",
     borderRadius: 8,
     color: "white",
@@ -22,20 +24,25 @@ const styles = {
     padding: 4,
     textDecoration: "none",
   },
+  h3: {
+    textAlignVertical: "center",
+    marginBottom: -8,
+    testAlign: "center",
+    paddingTop: 5,
+  },
 };
 
 function EachProject({project}) {
 
   return (
     <div style={styles.card}>
-      <h3>Project Name: {project.name} Manager: {project.projectLeader}</h3>
+      <Link to={`/projectId/${project._id}`} style={styles.button}>Click to View {project.name}</Link> 
+      <h3 style={styles.h3}> Manager: {project.projectLeader}</h3>
       <div style={styles.navbar}>
-      <button style={styles.button}>
-      <Link to={`/projectId/${project._id}`}>See project: {project.name}</Link> 
-      </button>
       </div>
+      </div>
+ 
 
-    </div>
   )
 }
 
