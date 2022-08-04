@@ -1,10 +1,11 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
-import WBSCard from "../components/WBS/index";
-import PNCard from "../components/PN/index";
-import GhanttCard from "../components/Ghantt";
+// import WBSCard from "../components/WBS/index";
+// import PNCard from "../components/PN/index";
+// import GhanttCard from "../components/Ghantt";
 import { useQuery } from "@apollo/client";
-import { QUERY_SINGLE_PROJECT } from "../../../client/src/utils/queries";
+import { QUERY_SINGLE_PROJECT } from "../utils/queries";
+import { useParams } from 'react-router-dom';
 
 
 
@@ -36,7 +37,13 @@ const styles = {
 
 // TODO: A project has a WBS, PN, and Ghantt
 function Card() {
-  const { data } = useQuery(QUERY_SINGLE_PROJECT);
+  const { id } = useParams();
+  console.log(id)
+  const { data } = useQuery(QUERY_SINGLE_PROJECT, {
+    variables: {id: id}
+  });
+
+  console.log(data)
   const project = data?.project || {name: "Unavailable", projectLeader: "Unavailable"};
   console.log("project", project)
   return (
@@ -45,9 +52,9 @@ function Card() {
         Project
       </h1>
       <h3 style={styles.content} >Project Name: {project.name}   Manager: {project.projectLeader}</h3>
-      <WBSCard></WBSCard>
+      {/* <WBSCard></WBSCard>
       <PNCard></PNCard>
-      <GhanttCard></GhanttCard>
+      <GhanttCard></GhanttCard> */}
     </div>
   );
 }
