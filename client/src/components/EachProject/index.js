@@ -44,30 +44,6 @@ const styles = {
     padding: 4,
     textDecoration: "none",
   },
-  buttonUpdate: {
-    display: "flex",
-    flexDirection: "row",
-    background: "#8093ff",
-    fontSize: "1.2rem",
-    color: "black",
-    alignItems: "center",
-    borderRadius: 8,
-    margin: 4,
-    padding: 4,
-    textDecoration: "none",
-  },
-  buttonDelete: {
-    display: "flex",
-    flexDirection: "row",
-    background: "#ff4e6e",
-    fontSize: "1.2rem",
-    color: "black",
-    alignItems: "center",
-    borderRadius: 8,
-    margin: 4,
-    padding: 4,
-    textDecoration: "none",
-  },
 
 };
 
