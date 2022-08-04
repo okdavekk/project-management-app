@@ -1,7 +1,8 @@
 const { Schema, model } = require('mongoose');
 
 
-const wbsSchema = new Schema({
+
+const ProjectNetworkSchema = new Schema({
     name: {
         type: String,
         required: true,
@@ -11,6 +12,6 @@ const wbsSchema = new Schema({
     
 
 });
-const WBS = model('WBS', wbsSchema);
+const ProjectNetwork = model('ProjectNetwork', ProjectNetworkSchema);
 
-module.exports = WBS;
+module.exports = ProjectNetwork;
