@@ -35,6 +35,17 @@ export const ADD_PROJECT = gql`
   }
 `;
 
+// export const DELETE_PROJECT = gql`
+//   mutation deleteProject($id: String!, $projectLeader: String!) {
+//     deleteProject(name: $name, projectLeader: $projectLeader) {
+//       _id
+//       name
+//       projectLeader
+//     }
+//   }
+// `;
+
+
 // export const ADD_WBS = gql`
 
 // `;

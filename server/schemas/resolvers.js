@@ -1,6 +1,7 @@
 const { AuthenticationError } = require('apollo-server-express');
 
 const { User, WBS, Ghantt, PN, Project } = require('../models');
+const { countDocuments } = require('../models/User');
 
 const { signToken } = require('../utils/auth');
 
@@ -61,7 +62,7 @@ const resolvers = {
     removeProject: async (_, { id }, context) => {
       if (context.user) {
         await User.findOneAndUpdate(
-          { savedProjects: projectId },
+          { _id: context.user._id },
           { $pull: { savedProjects: id } },
           { new: true }
         );
