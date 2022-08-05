@@ -42,7 +42,7 @@ function Card() {
       <div style={styles.card}>
         <div style={styles.content}>
         {projects.length > 0 &&
-          projects.map((project, index) => <EachProject project={project} />)}
+          projects.map((project, index) => <EachProject project={project} key={project + index} />)}
         </div>
       </div>
     </div>

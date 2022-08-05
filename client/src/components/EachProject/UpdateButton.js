@@ -2,7 +2,7 @@ import React from "react";
 import { useMutation } from "@apollo/client";
 
 import { UPDATE_PROJECT } from "../../utils/mutations";
-import { QUERY_ME } from "../../utils/queries";
+import { QUERY_PROJECTS } from "../../utils/queries";
 
 const styles = {
   buttonUpdate: {
@@ -24,8 +24,8 @@ const UpdateProject = ({ project, isLoggedInUser = false }) => {
     update(cache, { data: { updateProject } }) {
       try {
         cache.writeQuery({
-          query: QUERY_ME,
-          data: { me: updateProject },
+          query: QUERY_PROJECTS,
+          data: { project: updateProject },
         });
       } catch (e) {
         console.error(e);
