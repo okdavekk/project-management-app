@@ -20,24 +20,14 @@ const styles = {
 };
 // let project =props.project
 const DeleteProject = ({ projectId, isLoggedInUser = false }) => {
-  const [removeProject, { error }] = useMutation(DELETE_PROJECT, {
-    update(cache, { data: { removeProject } }) {
-      try {
-        cache.writeQuery({
-          query: QUERY_PROJECTS,
-          data: { project: removeProject },
-        });
-      } catch (e) {
-        console.error(e);
-      }
-    },
-  });
+  const [removeProject, { error }] = useMutation(DELETE_PROJECT);
 
   const handleDeleteProject = async (projectId) => {
     try {
-      const { data } = await removeProject({
-        variables: { id:projectId},
+      await removeProject({
+        variables: { id:projectId },
       });
+      window.location.reload();
     } catch (err) {
       console.error(err);
     }

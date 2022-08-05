@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useMutation, useQuery } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import { ADD_PROJECT } from "../../utils/mutations";
 
 const styles = {
@@ -40,7 +40,6 @@ const styles = {
 };
 
 function Form() {
-  const [project, setproject] = useState();
   const [formState, setFormState] = useState({
     name: "",
     projectDescription: "",
@@ -49,11 +48,13 @@ function Form() {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
-      const { name, value } = addProject({
+      const { data } = await addProject({
         variables: { ...formState },
       });
 
-      window.location.reload();
+      console.log(data);
+
+      window.location.replace(`/projectId/${data.addProject._id}`);
     } catch (err) {
       console.error(err);
     }
