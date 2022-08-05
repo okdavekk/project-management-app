@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import DeleteButton from "./DeleteButton";
-import UpdateButton from "./UpdateButton";
 
 const styles = {
   card: {
@@ -48,10 +47,10 @@ const styles = {
 };
 
 function EachProject({ project }) {
+
   return (
-    <div style={styles.card}>
+    <div style={styles.card} key={project._id} >
       <Link to={`/projectId/${project._id}`} style={styles.buttonView}>View</Link>
-      <UpdateButton projectId={project._id}/>
       <DeleteButton projectId={project._id} />
       <h3 style={styles.h3}>Project Title: {project.name}   </h3>
       <div style={styles.navbar}></div>

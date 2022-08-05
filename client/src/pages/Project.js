@@ -1,8 +1,5 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
-// import WBSCard from "../components/WBS/index";
-// import PNCard from "../components/PN/index";
-// import GhanttCard from "../components/Ghantt";
 import { useQuery } from "@apollo/client";
 import { QUERY_SINGLE_PROJECT } from "../utils/queries";
 import { useParams } from 'react-router-dom';
@@ -32,10 +29,8 @@ const styles = {
     color: "white",
   },
 };
-//TODO: Query single project.. Look into useparams from react router dom. Every activity from unit 21.
 
 
-// TODO: A project has a WBS, PN, and Ghantt
 function Card() {
   const { id } = useParams();
   console.log(id)
@@ -52,9 +47,6 @@ function Card() {
         {project.name}
       </h1>
       <h3 style={styles.content} >Project Description: {project.projectDescription}</h3>
-      {/* <WBSCard></WBSCard>
-      <PNCard></PNCard>
-      <GhanttCard></GhanttCard> */}
     </div>
   );
 }

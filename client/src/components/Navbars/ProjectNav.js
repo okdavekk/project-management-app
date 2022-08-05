@@ -30,7 +30,7 @@ function Navbar() {
         <Link to="/projects" className="button" style={styles.button}>
           Back to Projects
         </Link>
-        <Link to="/wbs" className="button" style={styles.button}>
+        {/* <Link to="/wbs" className="button" style={styles.button}>
           WBS
         </Link>
         <Link to="/pn" className="button" style={styles.button}>
@@ -38,7 +38,7 @@ function Navbar() {
         </Link>
         <Link to="/ghantt" className="button" style={styles.button}>
           Ghantt
-        </Link>
+        </Link> */}
         <Link to="/signout" className="button" style={styles.button}>
           Sign Out
         </Link>

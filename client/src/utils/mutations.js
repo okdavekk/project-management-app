@@ -1,4 +1,3 @@
-// TODO: Fill in the blanks
 import { gql } from "@apollo/client";
 
 export const LOGIN_USER = gql`
@@ -35,46 +34,18 @@ export const ADD_PROJECT = gql`
   }
 `;
 
-
-export const UPDATE_PROJECT = gql`
-  mutation updateProject($name: String!, $projectDescription: String!) {
-    updateProject(name: $name, projectDescription: $projectDescription) {
-      _id
-      name
-      projectDescription
-    }
-  }
-`;
-
-// export const DELETE_PROJECT = gql`
-//   mutation removeProject($id: ID!!) {
-//     removeProject(id: $id) {
-//       savedProjects {
-//       _id
-//       }
-    
-//     }
-//   }
-// `;
-
-
 export const DELETE_PROJECT = gql`
-  mutation removeProject($name: String!, $projectDescription: String!) {
-    removeProject(name: $name, projectDescription: $projectDescription) {
+  mutation removeProject($id: ID!) {
+    removeProject(id: $id) {
       _id
-      name
-      projectDescription
+      username
+      email
+      savedProjects {
+        _id
+        name
+        projectDescription
+      }
     }
   }
 `;
 
-// export const ADD_WBS = gql`
-
-// `;
-
-// export const ADD_PN = gql`
-
-// `;
-// export const ADD_GHANTT = gql`
-
-// `;
