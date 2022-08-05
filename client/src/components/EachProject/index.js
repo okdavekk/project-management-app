@@ -51,8 +51,8 @@ function EachProject({ project }) {
   return (
     <div style={styles.card}>
       <Link to={`/projectId/${project._id}`} style={styles.buttonView}>View</Link>
-      <UpdateButton />
-      <DeleteButton />
+      <UpdateButton projectId={project._id}/>
+      <DeleteButton projectId={project._id} />
       <h3 style={styles.h3}>Project Title: {project.name}   </h3>
       <div style={styles.navbar}></div>
     </div>

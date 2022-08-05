@@ -2,7 +2,7 @@ import React from "react";
 import { useMutation } from "@apollo/client";
 
 import { DELETE_PROJECT } from "../../utils/mutations";
-import { QUERY_ME } from "../../utils/queries";
+import { QUERY_PROJECTS } from "../../utils/queries";
 
 const styles = {
   buttonDelete: {
@@ -18,14 +18,14 @@ const styles = {
     textDecoration: "none",
   },
 };
-
-const DeleteProject = ({ project, isLoggedInUser = false }) => {
+// let project =props.project
+const DeleteProject = ({ projectId, isLoggedInUser = false }) => {
   const [removeProject, { error }] = useMutation(DELETE_PROJECT, {
     update(cache, { data: { removeProject } }) {
       try {
         cache.writeQuery({
-          query: QUERY_ME,
-          data: { me: removeProject },
+          query: QUERY_PROJECTS,
+          data: { project: removeProject },
         });
       } catch (e) {
         console.error(e);
@@ -33,10 +33,10 @@ const DeleteProject = ({ project, isLoggedInUser = false }) => {
     },
   });
 
-  const handleDeleteProject = async (project) => {
+  const handleDeleteProject = async (projectId) => {
     try {
       const { data } = await removeProject({
-        variables: { project },
+        variables: { id:projectId},
       });
     } catch (err) {
       console.error(err);
@@ -46,7 +46,7 @@ const DeleteProject = ({ project, isLoggedInUser = false }) => {
   return (
     <button
       style={styles.buttonDelete}
-      onClick={() => handleDeleteProject(project)}
+      onClick={() => handleDeleteProject(projectId)}
     >
       Delete
     </button>
