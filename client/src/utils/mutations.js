@@ -46,27 +46,27 @@ export const UPDATE_PROJECT = gql`
   }
 `;
 
-export const DELETE_PROJECT = gql`
-  mutation removeProject($id: ID!!) {
-    removeProject(id: $id) {
-      savedProjects {
-      _id
-      }
-    
-    }
-  }
-`;
-
-
 // export const DELETE_PROJECT = gql`
-//   mutation removeProject($name: String!, $projectDescription: String!) {
-//     removeProject(name: $name, projectDescription: $projectDescription) {
+//   mutation removeProject($id: ID!!) {
+//     removeProject(id: $id) {
+//       savedProjects {
 //       _id
-//       name
-//       projectDescription
+//       }
+    
 //     }
 //   }
 // `;
+
+
+export const DELETE_PROJECT = gql`
+  mutation removeProject($name: String!, $projectDescription: String!) {
+    removeProject(name: $name, projectDescription: $projectDescription) {
+      _id
+      name
+      projectDescription
+    }
+  }
+`;
 
 // export const ADD_WBS = gql`
 
