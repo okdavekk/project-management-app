@@ -1,11 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import DeleteButton from "./DeleteButton";
+import UpdateButton from "./UpdateButton";
 
 const styles = {
   card: {
     display: "flex",
     textAlignVertical: "center",
-    // margin: 20,
+    marginTop: 20,
+    marginBottom: 20,
     background: "#1f1f1f",
     borderRadius: 8,
     color: "white",
@@ -26,36 +29,13 @@ const styles = {
     textAlignVertical: "center",
     marginBottom: -8,
     testAlign: "center",
-    paddingTop: 5,
+    paddingTop: 12,
+    fontSize: 20,
   },
   buttonView: {
     display: "flex",
     flexDirection: "row",
     background: "#21ffb1",
-    fontSize: "1.2rem",
-    color: "black",
-    alignItems: "center",
-    borderRadius: 8,
-    margin: 4,
-    padding: 4,
-    textDecoration: "none",
-  },
-  buttonUpdate: {
-    display: "flex",
-    flexDirection: "row",
-    background: "#8093ff",
-    fontSize: "1.2rem",
-    color: "black",
-    alignItems: "center",
-    borderRadius: 8,
-    margin: 4,
-    padding: 4,
-    textDecoration: "none",
-  },
-  buttonDelete: {
-    display: "flex",
-    flexDirection: "row",
-    background: "#ff4e6e",
     fontSize: "1.2rem",
     color: "black",
     alignItems: "center",
@@ -71,9 +51,9 @@ function EachProject({ project }) {
   return (
     <div style={styles.card}>
       <Link to={`/projectId/${project._id}`} style={styles.buttonView}>View</Link>
-      <button  style={styles.buttonUpdate}>Update</button>
-      <button  style={styles.buttonDelete}>Delete</button>
-      <h3 style={styles.h3}>Project Title: {project.name}  Manager: {project.projectLeader}</h3>
+      <UpdateButton />
+      <DeleteButton />
+      <h3 style={styles.h3}>Project Title: {project.name}   </h3>
       <div style={styles.navbar}></div>
     </div>
   );

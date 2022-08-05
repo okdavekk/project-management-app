@@ -43,7 +43,7 @@ function Form() {
   const [project, setproject] = useState();
   const [formState, setFormState] = useState({
     name: "",
-    projectLeader: "",
+    projectDescription: "",
   });
   const [addProject, { error }] = useMutation(ADD_PROJECT);
   const handleFormSubmit = async (event) => {
@@ -77,9 +77,9 @@ function Form() {
           onChange={handleChange}
       />
       <input style={styles.input}
-          name="projectLeader"
-          placeholder="Who is the Project Manager?"
-          value={formState.projectLeader}
+          name="projectDescription"
+          placeholder="What is the Project Description?"
+          value={formState.projectDescription}
           className="form-input w-100"
           onChange={handleChange}
         />

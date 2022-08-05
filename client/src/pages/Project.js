@@ -44,14 +44,14 @@ function Card() {
   });
 
   console.log(data)
-  const project = data?.project || {name: "Unavailable", projectLeader: "Unavailable"};
+  const project = data?.project || {name: "Unavailable", projectDescription: "Unavailable"};
   console.log("project", project)
   return (
     <div style={styles.card}>
       <h1 className="d-flex align-items-center" style={styles.heading}>
-        Project
+        {project.name}
       </h1>
-      <h3 style={styles.content} >Project Name: {project.name}   Manager: {project.projectLeader}</h3>
+      <h3 style={styles.content} >Project Description: {project.projectDescription}</h3>
       {/* <WBSCard></WBSCard>
       <PNCard></PNCard>
       <GhanttCard></GhanttCard> */}

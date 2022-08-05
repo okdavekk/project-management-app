@@ -26,25 +26,47 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_PROJECT = gql`
-  mutation addProject($name: String!, $projectLeader: String!) {
-    addProject(name: $name, projectLeader: $projectLeader) {
+  mutation addProject($name: String!, $projectDescription: String!) {
+    addProject(name: $name, projectDescription: $projectDescription) {
       _id
       name
-      projectLeader
+      projectDescription
+    }
+  }
+`;
+
+
+export const UPDATE_PROJECT = gql`
+  mutation updateProject($name: String!, $projectDescription: String!) {
+    updateProject(name: $name, projectDescription: $projectDescription) {
+      _id
+      name
+      projectDescription
     }
   }
 `;
 
 // export const DELETE_PROJECT = gql`
-//   mutation deleteProject($id: String!, $projectLeader: String!) {
-//     deleteProject(name: $name, projectLeader: $projectLeader) {
+//   mutation removeProject($id: ID!!) {
+//     removeProject(id: $id) {
+//       savedProjects {
 //       _id
-//       name
-//       projectLeader
+//       }
+    
 //     }
 //   }
 // `;
 
+
+export const DELETE_PROJECT = gql`
+  mutation removeProject($name: String!, $projectDescription: String!) {
+    removeProject(name: $name, projectDescription: $projectDescription) {
+      _id
+      name
+      projectDescription
+    }
+  }
+`;
 
 // export const ADD_WBS = gql`
 

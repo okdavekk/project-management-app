@@ -1,7 +1,7 @@
 // import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import EachProject from "../components/EachProject";
-import Form from "../components/Form/Form";
+import Form from "../components/Projects/Form";
 import { useQuery } from "@apollo/client";
 import { QUERY_PROJECTS } from "../../../client/src/utils/queries";
 
