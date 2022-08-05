@@ -27,9 +27,9 @@ function Header() {
   return (
     <header style={styles.header}>
       <h1 style={styles.h1}>Project Management App</h1>
-      <div>
+      {/* <div>
         <button style={styles.button} className="buttonInstall" >Install App!</button>
-      </div>
+      </div> */}
     </header>
   );
 }
