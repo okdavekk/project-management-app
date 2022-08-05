@@ -45,6 +45,16 @@ export const DELETE_PROJECT = gql`
   }
 `;
 
+export const UPDATE_PROJECT = gql`
+  mutation updateProject($name: String!, $projectDescription: String!) {
+    removeProject(name: $name, projectDescription: $projectDescription) {
+      _id
+      name
+      projectDescription
+    }
+  }
+`;
+
 
 // export const ADD_WBS = gql`
 
