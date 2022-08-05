@@ -50,7 +50,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addProject(name: String!, projectDescription: String!): Project
     updateProject(id: ID!, name: String, projectDescription: String!): Project
-    removeProject(ProjectId: String!): Project
+    removeProject(id: ID!): User
     addGhantt(name: String): Ghantt
     addProjectNetwork(name: String): ProjectNetwork
     addWorkBreakdownStructure(name: String): WorkBreakdownStructure

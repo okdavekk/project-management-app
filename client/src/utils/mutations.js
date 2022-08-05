@@ -47,11 +47,12 @@ export const UPDATE_PROJECT = gql`
 `;
 
 export const DELETE_PROJECT = gql`
-  mutation removeProject($ProjectId: String!) {
-    removeProject(ProjectId: $ProjectId) {
+  mutation removeProject($id: ID!!) {
+    removeProject(id: $id) {
+      savedProjects {
       _id
-      name
-      projectDescription
+      }
+    
     }
   }
 `;
